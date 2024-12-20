@@ -3,8 +3,8 @@ import { useState, useEffect } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { NavigationContainer, useNavigation } from '@react-navigation/native';
 import { SplashScreen } from './splash'
-import { TablaScreen } from './tabla'
-export function ResultadoScreen({ route }) {
+import { Pagina2Screen } from './pagina2'
+export function Pagina1Screen({ route }) {
 
     const navigation = useNavigation();
     const [colorA, setColorA] = useState('gray')

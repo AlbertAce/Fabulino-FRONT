@@ -5,7 +5,7 @@ import { Table, Row, Rows } from 'react-native-table-component';
 import { useNavigation } from '@react-navigation/native';
 
 
-export function TablaScreen({ route }) {
+export function Pagina2Screen({ route }) {
     const [duplaLista, setDuplaLista] = useState([]);
     const [indiceSelecionado, setIndiceSeleccionado]=useState(0.0);
     const navigation = useNavigation();
