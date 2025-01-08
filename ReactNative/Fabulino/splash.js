@@ -68,7 +68,9 @@ export function SplashScreen({ navigation }) {
                 />
                 <TouchableOpacity
                     style={styles.styleBoton}
-                    onPress={() => { }} // Función vacía para el evento onPress
+                    onPress={() => { 
+                        navigation.navigate('juego1');
+                    }} // Función vacía para el evento onPress
                 >
                     <Text style={styles.buttonText}>jugar</Text>
                 </TouchableOpacity>
@@ -115,6 +117,7 @@ const styles = StyleSheet.create({
         borderColor: 'darkgrey',
         color: '#222828',
         backgroundColor: 'floralwhite',
+        marginTop: 36,
         borderWidth: 3,
         borderRadius: 20,
         margin: 16,
@@ -142,6 +145,7 @@ const styles = StyleSheet.create({
     buttonText: {
         color: '#222828',
         fontSize: 24,
+        padding: 16,
         fontFamily: 'MTFBirthdayBash', // Usar la fuente personalizad
     },
 });
