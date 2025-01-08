@@ -1,0 +1,54 @@
+.imagenCabeza {
+    z-index: 5;
+    cursor: pointer;
+    width: 330px;
+    height: auto;
+    transform: translateY(10px);
+}
+
+.imagenTronco {
+    z-index: 1;
+    cursor: pointer;
+    width: 200px;
+    height: auto;
+}
+
+.imagenBrazoDch {
+    z-index: 5;
+    cursor: pointer;
+    width: 120px;
+    height: auto;
+    transform: translate(-38px, 18px);
+}
+
+.imagenBrazoIzq {
+    z-index: 5;
+    cursor: pointer;
+    width: 120px;
+    height: auto;
+    transform: translate(39px, 19px);
+}
+
+.imagenPantalon {
+    z-index: 1;
+    cursor: pointer;
+    width: 228px;
+    height: auto;
+    transform: translate(1.5px, -26px);
+}
+
+.imagenPiernaIzq {
+    z-index: 5;
+    cursor: pointer;
+    width: 100px;
+    height: auto;
+    transform: translate(-7px, -34px);
+}
+
+.imagenPiernaDch {
+    z-index: 5;
+    cursor: pointer;
+    width: 100px;
+    height: auto;
+    transform: translate(10px, -37px);
+}
