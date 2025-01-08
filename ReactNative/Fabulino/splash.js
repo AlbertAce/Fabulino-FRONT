@@ -1,68 +1,95 @@
 import * as React from 'react';
-import { useState } from 'react';
-import { View, Text, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
-import { createStaticNavigation, useNavigation } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { Button } from "@react-navigation/elements";
+import { useState, useRef } from 'react';
+import { View, Text, StyleSheet, ImageBackground, Image } from 'react-native';
+import LottieView from 'lottie-react-native';
+import useSpinner from './SpinOff/SpinOff';
+import { TouchableOpacity } from 'react-native-gesture-handler';
+import { useFonts } from 'expo-font';
 
 export function SplashScreen({ navigation }) {
-    const [registroSoplar, setRegistroSoplar] = useState(0.0);
-    const [listaResultados, setListaResultados] = useState([]);
+    const [fontsLoaded] = useFonts({
+        'MTFBirthdayBash': require('./assets/fonts/MTFBirthdayBash.ttf'),
+    });//esto es para usar la fuente importada
+    const [displayImagen, setDisplayImagen] = useState('none')
+    const animationRef = useRef(null);
+    const cargandoRef = useRef(null);
+    const newAnimationRef = useRef(null);
 
-    const anadirResultado = () => {
-        setListaResultados([...listaResultados, registroSoplar]);
-        setRegistroSoplar(0.0);
 
-    }
+    const [isNewAnimationVisible, setNewAnimationVisible] = useState(false);
 
-    const mandarResultadosR = () => {
-        anadirResultado();
-        console.log("eeeee - " + listaResultados)
-        const datos = {
-            resgistroSoplar: registroSoplar,
-        }
-        navigation.navigate('resultado', { datosEnviados: datos })
-        console.log("eeee2 - " + listaResultados)
-        
-    }
-    const mandarResultadosT = () => {
-        
-        console.log("aaaa - " + listaResultados)
-        const datos = {
-            listaResultados: listaResultados
-        }
-        navigation.navigate('tabla', { datosEnviados: datos })
-    }
+    // Usar el hook de animación con una duración específica
+    const isAnimationVisible = useSpinner(animationRef, 6800, () => {
+        // Callback cuando la primera animación termine
+        setNewAnimationVisible(true);
+    });
+
+
+
+    const isCargandoVisible = useSpinner(cargandoRef, 6800, () => { });
+
+    const isAnotherAnimationVisible = useSpinner(newAnimationRef, 2000, () => { setDisplayImagen('bloc') });
+
     return (
-        <View style={styles.container}>
-            <Text style={styles.styleTextTitle}>Soplum!!</Text>
-            <TextInput
-                style={styles.styleTextImput}
-                onChangeText={setRegistroSoplar}
-                value={String(registroSoplar)}
-                keyboardType='numeric'
-                onFocus={() => setRegistroSoplar('')} // Cambio: Reiniciar registroSoplar a cadena vacía
->
-            </TextInput>
+        <ImageBackground source={require('./assets/images/Fondo_fabulino.png')} style={styles.background}>
+            <View style={styles.container}>
+                {isAnimationVisible && (
+                    <LottieView
+                        ref={animationRef}
+                        source={require('./assets/animaciones/F_logo_carga.json')}
+                        autoPlay={false}
+                        loop
+                        style={styles.animation}
+                    />
+                )}
 
-            <TouchableOpacity onPress={mandarResultadosR} style={styles.styleBoton}>
-                <Text style={{ textAlign: 'center', }}>Soplar</Text>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={mandarResultadosT} style={styles.styleBoton}>
-                <Text style={{ textAlign: 'center', }}>Tabla</Text>
-            </TouchableOpacity>
+                {isCargandoVisible && (
+                    <LottieView
+                        ref={cargandoRef}
+                        source={require('./assets/animaciones/cargando.json')}
+                        autoPlay={false}
+                        loop
+                        style={styles.cargando}
+                    />
+                )}
+                {isNewAnimationVisible && isAnotherAnimationVisible && (
+                    <LottieView
+                        ref={newAnimationRef}
+                        source={require('./assets/animaciones/logo_animacion.json')}
+                        autoPlay
+                        loop={false}
+                        style={styles.newAnimation}
+                    />
+                )}
+                <Image
+                    source={require('./assets/images/logoFondo1.png')}
+                    style={[styles.imagen, { display: displayImagen }]}
+                    resizeMode="contain"
+                />
+                <TouchableOpacity
+                    style={styles.styleBoton}
+                    onPress={() => { }} // Función vacía para el evento onPress
+                >
+                    <Text style={styles.buttonText}>jugar</Text>
+                </TouchableOpacity>
 
-
-        </View>
+            </View>
+        </ImageBackground>
     );
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: 'darkslategrey',
-        alignItems: 'center',
+    background: {
         justifyContent: 'center',
+        alignItems: 'center',
+        flex: 1,
+        resizeMode: 'cover', // La propiedad resizeMode determina cómo se ajusta la imagen dentro del componente ImageBackground.
+    },
+    container: {
+        marginTop: 140,
+        flex: 1,
+        justifyContent: 'flex-start',
+        alignItems: 'center',
     },
     styleTextImput: {
         borderColor: 'darkgrey',
@@ -74,14 +101,12 @@ const styles = StyleSheet.create({
         margin: 16,
         color: '#222828',
         fontSize: 32,
-    }
-    ,
+    },
     styleTextTitle: {
         color: 'floralwhite',
         fontSize: 24,
         fontWeight: 'bold',
-    }
-    ,
+    },
     styleBoton: {
         justifyContent: 'center',
         alignItems: 'center',
@@ -93,6 +118,30 @@ const styles = StyleSheet.create({
         borderWidth: 3,
         borderRadius: 20,
         margin: 16,
-    }
-
+    },
+    animation: {
+        width: 125,
+        height: 125,
+    },
+    cargando: {
+        width: 150,
+        height: 150,
+    },
+    imagen: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: 170,
+        height: 150,
+    },
+    newAnimation: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: 150,
+        height: 150,
+    },
+    buttonText: {
+        color: '#222828',
+        fontSize: 24,
+        fontFamily: 'MTFBirthdayBash', // Usar la fuente personalizad
+    },
 });
