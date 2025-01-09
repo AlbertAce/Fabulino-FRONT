@@ -62,17 +62,30 @@ export function SplashScreen({ navigation }) {
                     />
                 )}
                 <Image
-                    source={require('./assets/images/logoFondo1.png')}
+                    source={require('./assets/images/LOGOaNIMADO8.png')}
                     style={[styles.imagen, { display: displayImagen }]}
                     resizeMode="contain"
                 />
+            </View>
+            <View style={styles.BotonJugar}>
                 <TouchableOpacity
                     style={styles.styleBoton}
                     onPress={() => { }} // Función vacía para el evento onPress
                 >
                     <Text style={styles.buttonText}>jugar</Text>
                 </TouchableOpacity>
-
+            </View>
+            <View style={styles.AjustesUbicacion}>
+                <TouchableOpacity
+                    style={styles.Ajustes}
+                    onPress={() => { }} // Función vacía para el evento onPress
+                >
+                    <Image
+                        source={require('./assets/images/img-ajustes/ajuste.png')}
+                        style={[styles.IconoAjustes, { display: displayImagen }]}
+                        resizeMode="contain"
+                    />
+                </TouchableOpacity>
             </View>
         </ImageBackground>
     );
@@ -86,9 +99,9 @@ const styles = StyleSheet.create({
         resizeMode: 'cover', // La propiedad resizeMode determina cómo se ajusta la imagen dentro del componente ImageBackground.
     },
     container: {
-        marginTop: 140,
         flex: 1,
-        justifyContent: 'flex-start',
+        display: 'grid',
+        justifyContent: 'center',
         alignItems: 'center',
     },
     styleTextImput: {
@@ -99,7 +112,6 @@ const styles = StyleSheet.create({
         backgroundColor: 'burlywood',
         textAlign: 'center',
         margin: 16,
-        color: '#222828',
         fontSize: 32,
     },
     styleTextTitle: {
@@ -108,40 +120,81 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
     },
     styleBoton: {
+        display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
         height: 56,
         width: 144,
-        borderColor: 'darkgrey',
-        color: '#222828',
-        backgroundColor: 'floralwhite',
+        borderColor: 'darkgreen',
+        color: '#22828',
+        backgroundColor: '#214400',
         borderWidth: 3,
         borderRadius: 20,
         margin: 16,
     },
     animation: {
+        flex: 1,
+        display: 'grid',
+        justifyContent: 'center',
+        alignItems: 'center',
         width: 125,
         height: 125,
     },
     cargando: {
+        flex: 1,
+        display: 'grid',
+        justifyContent: 'center',
+        alignItems: 'center',
         width: 150,
         height: 150,
     },
     imagen: {
+        display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
         width: 170,
         height: 150,
     },
     newAnimation: {
+        flex: 1,
+        display: 'grid',
         justifyContent: 'center',
         alignItems: 'center',
         width: 150,
         height: 150,
     },
     buttonText: {
-        color: '#222828',
-        fontSize: 24,
+        color: 'white',
+        fontSize: 20,
         fontFamily: 'MTFBirthdayBash', // Usar la fuente personalizad
     },
+    BotonJugar: {
+        flex: 1,
+        display: 'grid',
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginTop: 100,
+    },
+    // Ajustes
+    Ajustes: {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        height: 55,
+        width: 55,
+        borderColor: 'darkgreen',
+        color: '#22828',
+        backgroundColor:'#52A900',
+        borderWidth: 3,
+        borderRadius: 50,
+        margin: 16,
+    }, AjustesUbicacion: {
+        display: 'flex',
+        justifyContent: 'start',
+        alignItems: 'start',
+        width: '100%',
+    },IconoAjustes:{
+        flex:1,
+        width:'90%',
+    }
 });
