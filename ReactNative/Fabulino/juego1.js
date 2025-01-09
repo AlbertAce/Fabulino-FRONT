@@ -4,11 +4,32 @@ import { View, Text, StyleSheet, ImageBackground, Image, TouchableOpacity } from
 
 export function Juego1Screen({ route }) {
 
+    const [colorPopUp, setColorPopUp] = useState("");
+    function cambiarColorPopUp(color) {
+        setColorPopUp(color);
+    }
+
+    const [texto, setTexto] = useState("");
+    function cambiarTexto(txt) {
+        setTexto(txt);
+    }
+
+    const [valorZIndex, setValorZIndex] = useState(-1);
+    function cambiarValorZIndex() {
+        setValorZIndex(-1);
+        cambiarTexto("");
+    }
+
     const [imagenCabeza, setImagenCabeza] = useState(require('./assets/images/cuerpo/cabeza/cabezaNinio.png'));
     const cambiarCabeza = () => {
         setImagenCabeza((ImagenCabezaAnterior) =>
             ImagenCabezaAnterior === require('./assets/images/cuerpo/cabeza/cabezaNinio.png') ? require('./assets/images/cuerpo/cabeza/cabezaNinioSI.png') : require('./assets/images/cuerpo/cabeza/cabezaNinio.png')
         );
+        if (imagenCabeza === require('./assets/images/cuerpo/cabeza/cabezaNinio.png')) {
+            cambiarColorPopUp('#58B500');
+            cambiarTexto("Si te pueden tocar");
+            setValorZIndex(1);
+        }
     };
 
     const [imagenBrazoIzq, setImagenBrazoIzq] = useState(require('./assets/images/cuerpo/brazoIzq/brazoNinioIzq.png'));
@@ -16,6 +37,11 @@ export function Juego1Screen({ route }) {
         setImagenBrazoIzq((ImagenBrazoIzqAnterior) =>
             ImagenBrazoIzqAnterior === require('./assets/images/cuerpo/brazoIzq/brazoNinioIzq.png') ? require('./assets/images/cuerpo/brazoIzq/brazoNinioIzqSI.png') : require('./assets/images/cuerpo/brazoIzq/brazoNinioIzq.png')
         );
+        if (imagenBrazoIzq === require('./assets/images/cuerpo/brazoIzq/brazoNinioIzq.png')) {
+            cambiarColorPopUp('#58B500');
+            cambiarTexto("Si te pueden tocar");
+            setValorZIndex(1);
+        }
     };
 
     const [imagenTronco, setImagenTronco] = useState(require('./assets/images/cuerpo/tronco/troncoNinio.png'));
@@ -23,6 +49,11 @@ export function Juego1Screen({ route }) {
         setImagenTronco((ImagenTroncoAnterior) =>
             ImagenTroncoAnterior === require('./assets/images/cuerpo/tronco/troncoNinio.png') ? require('./assets/images/cuerpo/tronco/troncoNinioNO.png') : require('./assets/images/cuerpo/tronco/troncoNinio.png')
         );
+        if (imagenTronco === require('./assets/images/cuerpo/tronco/troncoNinio.png')) {
+            cambiarColorPopUp('#A90000');
+            cambiarTexto("No te pueden tocar");
+            setValorZIndex(1);
+        }
     };
 
     const [imagenBrazoDch, setImagenBrazoDch] = useState(require('./assets/images/cuerpo/brazoDch/brazoNinioDch.png'));
@@ -30,6 +61,11 @@ export function Juego1Screen({ route }) {
         setImagenBrazoDch((ImagenBrazoDchAnterior) =>
             ImagenBrazoDchAnterior === require('./assets/images/cuerpo/brazoDch/brazoNinioDch.png') ? require('./assets/images/cuerpo/brazoDch/brazoNinioDchSI.png') : require('./assets/images/cuerpo/brazoDch/brazoNinioDch.png')
         );
+        if (imagenBrazoDch === require('./assets/images/cuerpo/brazoDch/brazoNinioDch.png')) {
+            cambiarColorPopUp('#58B500');
+            cambiarTexto("Si te pueden tocar");
+            setValorZIndex(1);
+        }
     };
 
     const [imagenPantalon, setImagenPantalon] = useState(require('./assets/images/cuerpo/pantalon/pantalonNinio.png'));
@@ -37,6 +73,11 @@ export function Juego1Screen({ route }) {
         setImagenPantalon((ImagenPantalonAnterior) =>
             ImagenPantalonAnterior === require('./assets/images/cuerpo/pantalon/pantalonNinio.png') ? require('./assets/images/cuerpo/pantalon/pantalonNinioNO.png') : require('./assets/images/cuerpo/pantalon/pantalonNinio.png')
         );
+        if (imagenPantalon === require('./assets/images/cuerpo/pantalon/pantalonNinio.png')) {
+            cambiarColorPopUp('#A90000');
+            cambiarTexto("No te pueden tocar");
+            setValorZIndex(1);
+        }
     };
 
     const [imagenPiernaIzq, setImagenPiernaIzq] = useState(require('./assets/images/cuerpo/piernaIzq/piernaNinioIzq.png'));
@@ -44,6 +85,11 @@ export function Juego1Screen({ route }) {
         setImagenPiernaIzq((ImagenPiernaIzqAnterior) =>
             ImagenPiernaIzqAnterior === require('./assets/images/cuerpo/piernaIzq/piernaNinioIzq.png') ? require('./assets/images/cuerpo/piernaIzq/piernaNinioIzqSI.png') : require('./assets/images/cuerpo/piernaIzq/piernaNinioIzq.png')
         );
+        if (imagenPiernaIzq === require('./assets/images/cuerpo/piernaIzq/piernaNinioIzq.png')) {
+            cambiarColorPopUp('#58B500');
+            cambiarTexto("Si te pueden tocar");
+            setValorZIndex(1);
+        }
     };
 
     const [imagenPiernaDch, setImagenPiernaDch] = useState(require('./assets/images/cuerpo/piernaDch/piernaNinioDch.png'));
@@ -51,13 +97,21 @@ export function Juego1Screen({ route }) {
         setImagenPiernaDch((ImagenPiernaDchAnterior) =>
             ImagenPiernaDchAnterior === require('./assets/images/cuerpo/piernaDch/piernaNinioDch.png') ? require('./assets/images/cuerpo/piernaDch/piernaNinioDchSI.png') : require('./assets/images/cuerpo/piernaDch/piernaNinioDch.png')
         );
+        if (imagenPiernaDch === require('./assets/images/cuerpo/piernaDch/piernaNinioDch.png')) {
+            cambiarColorPopUp('#58B500');
+            cambiarTexto("Si te pueden tocar");
+            setValorZIndex(1);
+        }
     };
 
     return (
         <ImageBackground source={require('./assets/images/Fondo_fabulino.png')} style={styles.background}>
             <View style={styles.container}>
-                <View style={[styles.respuesta, { zIndex: -1 }]}>
-                    
+                <View style={[styles.respuesta, { backgroundColor: colorPopUp , zIndex: valorZIndex }]}>
+                    <TouchableOpacity style={styles.botonAtras} onPress={cambiarValorZIndex}>
+                        <Image style={[styles.iconoAtras, { zIndex: valorZIndex }]} source={require('./assets/images/iconos/atras.png')} />
+                    </TouchableOpacity>
+                    <Text style={styles.texto}>{texto}</Text>
                 </View>
                 <View style={styles.row}>
                     <TouchableOpacity onPress={cambiarCabeza}>
@@ -126,15 +180,19 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
     },
+    texto: {
+        color: '#DDF7C4',
+        fontSize: 36,
+        fontWeight: 'bold',
+    },
     respuesta: {
         position: 'absolute',
         justifyContent: 'center',
         alignItems: 'center',
         width: 340,
-        height: 580,
-        transform: [{ translateY: -80 }],
-        backgroundColor: 'darkgreen',
-        borderWidth: 5,
+        height: 480,
+        transform: [{ translateY: -50 }],
+        borderWidth: 3,
         borderRadius: 20,
         borderColor: 'black',
     },
@@ -143,6 +201,22 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         flex: 1,
         resizeMode: 'cover', // La propiedad resizeMode determina cómo se ajusta la imagen dentro del componente ImageBackground.
+    },
+    botonAtras: {
+        position: 'absolute',
+        width: 70,
+        height: 70,
+        backgroundColor: '#DDF7C4',
+        borderColor: 'black',
+        borderWidth: 2,
+        borderRadius: 100,
+        transform: [{ translateY: -190 }, { translateX: -120 }],
+    },
+    iconoAtras: {
+        position: 'absolute',
+        width: 25,
+        height: 25,
+        transform: [{ translateY: 20 }, { translateX: 18 }, { rotate: '-180deg' }],
     },
     cabeza: {
         justifyContent: 'center',
