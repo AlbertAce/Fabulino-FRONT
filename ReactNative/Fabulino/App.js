@@ -14,7 +14,7 @@ function RootStack() {
   return (
     <Stack.Navigator initialRouteName='splash' screenOptions={{ headerStyle: { backgroundColor: 'floralwhite' } }}>
       <Stack.Screen name='splash' component={SplashScreen} options={{ title: 'Inicio' }}></Stack.Screen>
-      <Stack.Screen name='juego1' component={Juego1Screen} options={{ title: 'Juego' }}></Stack.Screen>
+      <Stack.Screen name='juego1' component={Juego1Screen} options={{ title: 'Buen toque, mal toque' }}></Stack.Screen>
       <Stack.Screen name='pagina1' component={Pagina1Screen} options={{ title: 'Relaja' }}></Stack.Screen>
       <Stack.Screen name='pagina2' component={Pagina2Screen} options={{ title: 'Así va la cosa' }}></Stack.Screen>
     </Stack.Navigator>
