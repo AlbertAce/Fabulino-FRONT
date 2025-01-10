@@ -6,7 +6,7 @@ import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { SplashScreen } from './splash'
 import { MenuScreen } from './menu'
-import { Juego1Screen } from './juego1'
+import { Juego1Screen } from './Juegos/Juego1/juego1'
 import { Juego2Screen } from './juego2'
 import { Juego3Screen } from './juego3'
 
