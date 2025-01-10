@@ -69,7 +69,7 @@ export function SplashScreen({ navigation }) {
                 <TouchableOpacity
                     style={styles.styleBoton}
                     onPress={() => { 
-                        navigation.navigate('juego1');
+                        navigation.navigate('menu');
                     }} // Función vacía para el evento onPress
                 >
                     <Text style={styles.buttonText}>jugar</Text>

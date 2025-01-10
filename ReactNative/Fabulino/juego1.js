@@ -107,7 +107,7 @@ export function Juego1Screen({ route }) {
     return (
         <ImageBackground source={require('./assets/images/Fondo_fabulino.png')} style={styles.background}>
             <View style={styles.container}>
-                <View style={[styles.respuesta, { backgroundColor: colorPopUp , zIndex: valorZIndex }]}>
+                <View style={[styles.respuesta, { backgroundColor: colorPopUp, zIndex: valorZIndex }]}>
                     <TouchableOpacity style={styles.botonAtras} onPress={cambiarValorZIndex}>
                         <Image style={[styles.iconoAtras, { zIndex: valorZIndex }]} source={require('./assets/images/iconos/atras.png')} />
                     </TouchableOpacity>
@@ -200,7 +200,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         flex: 1,
-        resizeMode: 'cover', // La propiedad resizeMode determina cómo se ajusta la imagen dentro del componente ImageBackground.
+        resizeMode: 'cover',
     },
     botonAtras: {
         position: 'absolute',
