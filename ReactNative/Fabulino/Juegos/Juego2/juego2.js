@@ -2,9 +2,9 @@ import * as React from 'react';
 import { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, ImageBackground, Image, TouchableOpacity } from 'react-native';
 
-export function Juego3Screen({ navigation }) {
+export function Juego2Screen({ navigation }) {
     return (
-        <ImageBackground source={require('./assets/images/Fondo_fabulino.png')} style={styles.background}>
+        <ImageBackground source={require('assets/images/Fondo_fabulino.png')} style={styles.background}>
             <View style={styles.container}>
 
             </View>
@@ -12,6 +12,12 @@ export function Juego3Screen({ navigation }) {
     )
 }
 const styles = StyleSheet.create({
+    background: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        flex: 1,
+        resizeMode: 'cover',
+    },
     container: {
         marginTop: 140,
         flex: 1,
