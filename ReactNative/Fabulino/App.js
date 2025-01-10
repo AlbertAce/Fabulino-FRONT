@@ -6,9 +6,9 @@ import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { SplashScreen } from './splash'
 import { MenuScreen } from './menu'
-import { Juego1Screen } from './Juegos/Juego1/juego1'
-import { Juego2Screen } from './juego2'
-import { Juego3Screen } from './juego3'
+import { Juego1Screen } from 'Juegos/Juego1/juego1'
+import { Juego2Screen } from 'Juegos/Juego2/juego2'
+import { Juego3Screen } from 'Juegos/Juego3/juego3'
 
 const Stack = createNativeStackNavigator();
 function RootStack() {

@@ -6,6 +6,7 @@ import useSpinner from './SpinOff/SpinOff';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { useFonts } from 'expo-font';
 import { Ionicons } from '@expo/vector-icons';
+import { stylesFull } from 'assets/styles/stylesA';
 
 export function SplashScreen({ navigation }) {
     const [fontsLoaded] = useFonts({
@@ -54,9 +55,9 @@ export function SplashScreen({ navigation }) {
     const isAnotherAnimationVisible = useSpinner(newAnimationRef, 2000, () => { setDisplayImagen('bloc') });
 
     return (
-        <ImageBackground source={require('./assets/images/Fondo_fabulino.png')} style={styles.background}>
-            <View style={styles.containerAll} >
-                <View style={styles.container}>
+        <ImageBackground source={require('./assets/images/Fondo_fabulino.png')} style={stylesFull.background}>
+            <View style={styles.containerAll}>
+                <View style={stylesFull.container}>
                     {isAnimationVisible && (
                         <LottieView
                             ref={animationRef}
@@ -93,9 +94,10 @@ export function SplashScreen({ navigation }) {
                 </View>
                 <View style={styles.BotonJugar}>
                     <TouchableOpacity
-                        style={styles.styleBoton}
+                        style={stylesFull.styleBoton}
+                        onPress={() => navigation.navigate('menu')}
                     >
-                        <Text style={styles.buttonText}>jugar</Text>
+                        <Text style={stylesFull.buttonText}>jugar</Text>
                     </TouchableOpacity>
                 </View>
                 <View style={styles.AjustesAbsolute}>
@@ -137,24 +139,10 @@ export function SplashScreen({ navigation }) {
 }
 
 const styles = StyleSheet.create({
-    background: {
-        justifyContent: 'center',
-        alignItems: 'center',
-        flex: 1,
-        resizeMode: 'cover', // La propiedad resizeMode determina cómo se ajusta la imagen dentro del componente ImageBackground.
-    },
     containerAll: {
         display: 'grid',
         justifyContent: 'center',
         alignItems: 'center',
-    },
-    container: {
-        marginTop: 100,
-        flex: 1,
-        display: 'grid',
-        justifyContent: 'center',
-        alignItems: 'center',
-
     },
     styleTextImput: {
         borderColor: 'darkgrey',
@@ -170,19 +158,6 @@ const styles = StyleSheet.create({
         color: 'floralwhite',
         fontSize: 24,
         fontWeight: 'bold',
-    },
-    styleBoton: {
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        height: 56,
-        width: 144,
-        borderColor: 'darkgreen',
-        color: '#22828',
-        backgroundColor: '#214400',
-        borderWidth: 3,
-        borderRadius: 20,
-        margin: 16,
     },
     animation: {
         width: 125,
@@ -219,7 +194,7 @@ const styles = StyleSheet.create({
         marginTop: 50,
     },
     // Ajustes
-    AjustesAbsolute:{
+    AjustesAbsolute: {
         display: 'flex',
         justifyContent: 'flex-end',
         alignItems: 'center',

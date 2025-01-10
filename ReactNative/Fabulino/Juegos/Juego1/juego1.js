@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, ImageBackground, Image, TouchableOpacity } from 'react-native';
+import { stylesFull } from 'assets/styles/stylesA';
 
 export function Juego1Screen({ route }) {
 
@@ -20,84 +21,84 @@ export function Juego1Screen({ route }) {
         cambiarTexto("");
     }
 
-    const [imagenCabeza, setImagenCabeza] = useState(require('./assets/images/cuerpo/cabeza/cabezaNinio.png'));
+    const [imagenCabeza, setImagenCabeza] = useState(require('assets/images/cuerpo/cabeza/cabezaNinio.png'));
     const cambiarCabeza = () => {
         setImagenCabeza((ImagenCabezaAnterior) =>
-            ImagenCabezaAnterior === require('./assets/images/cuerpo/cabeza/cabezaNinio.png') ? require('./assets/images/cuerpo/cabeza/cabezaNinioSI.png') : require('./assets/images/cuerpo/cabeza/cabezaNinio.png')
+            ImagenCabezaAnterior === require('assets/images/cuerpo/cabeza/cabezaNinio.png') ? require('assets/images/cuerpo/cabeza/cabezaNinioSI.png') : require('assets/images/cuerpo/cabeza/cabezaNinio.png')
         );
-        if (imagenCabeza === require('./assets/images/cuerpo/cabeza/cabezaNinio.png')) {
+        if (imagenCabeza === require('assets/images/cuerpo/cabeza/cabezaNinio.png')) {
             cambiarColorPopUp('#58B500');
             cambiarTexto("Si te pueden tocar");
             setValorZIndex(1);
         }
     };
 
-    const [imagenBrazoIzq, setImagenBrazoIzq] = useState(require('./assets/images/cuerpo/brazoIzq/brazoNinioIzq.png'));
+    const [imagenBrazoIzq, setImagenBrazoIzq] = useState(require('assets/images/cuerpo/brazoIzq/brazoNinioIzq.png'));
     const cambiarBrazoIzq = () => {
         setImagenBrazoIzq((ImagenBrazoIzqAnterior) =>
-            ImagenBrazoIzqAnterior === require('./assets/images/cuerpo/brazoIzq/brazoNinioIzq.png') ? require('./assets/images/cuerpo/brazoIzq/brazoNinioIzqSI.png') : require('./assets/images/cuerpo/brazoIzq/brazoNinioIzq.png')
+            ImagenBrazoIzqAnterior === require('assets/images/cuerpo/brazoIzq/brazoNinioIzq.png') ? require('assets/images/cuerpo/brazoIzq/brazoNinioIzqSI.png') : require('assets/images/cuerpo/brazoIzq/brazoNinioIzq.png')
         );
-        if (imagenBrazoIzq === require('./assets/images/cuerpo/brazoIzq/brazoNinioIzq.png')) {
+        if (imagenBrazoIzq === require('assets/images/cuerpo/brazoIzq/brazoNinioIzq.png')) {
             cambiarColorPopUp('#58B500');
             cambiarTexto("Si te pueden tocar");
             setValorZIndex(1);
         }
     };
 
-    const [imagenTronco, setImagenTronco] = useState(require('./assets/images/cuerpo/tronco/troncoNinio.png'));
+    const [imagenTronco, setImagenTronco] = useState(require('assets/images/cuerpo/tronco/troncoNinio.png'));
     const cambiarTronco = () => {
         setImagenTronco((ImagenTroncoAnterior) =>
-            ImagenTroncoAnterior === require('./assets/images/cuerpo/tronco/troncoNinio.png') ? require('./assets/images/cuerpo/tronco/troncoNinioNO.png') : require('./assets/images/cuerpo/tronco/troncoNinio.png')
+            ImagenTroncoAnterior === require('assets/images/cuerpo/tronco/troncoNinio.png') ? require('assets/images/cuerpo/tronco/troncoNinioNO.png') : require('assets/images/cuerpo/tronco/troncoNinio.png')
         );
-        if (imagenTronco === require('./assets/images/cuerpo/tronco/troncoNinio.png')) {
+        if (imagenTronco === require('assets/images/cuerpo/tronco/troncoNinio.png')) {
             cambiarColorPopUp('#A90000');
             cambiarTexto("No te pueden tocar");
             setValorZIndex(1);
         }
     };
 
-    const [imagenBrazoDch, setImagenBrazoDch] = useState(require('./assets/images/cuerpo/brazoDch/brazoNinioDch.png'));
+    const [imagenBrazoDch, setImagenBrazoDch] = useState(require('assets/images/cuerpo/brazoDch/brazoNinioDch.png'));
     const cambiarBrazoDch = () => {
         setImagenBrazoDch((ImagenBrazoDchAnterior) =>
-            ImagenBrazoDchAnterior === require('./assets/images/cuerpo/brazoDch/brazoNinioDch.png') ? require('./assets/images/cuerpo/brazoDch/brazoNinioDchSI.png') : require('./assets/images/cuerpo/brazoDch/brazoNinioDch.png')
+            ImagenBrazoDchAnterior === require('assets/images/cuerpo/brazoDch/brazoNinioDch.png') ? require('assets/images/cuerpo/brazoDch/brazoNinioDchSI.png') : require('assets/images/cuerpo/brazoDch/brazoNinioDch.png')
         );
-        if (imagenBrazoDch === require('./assets/images/cuerpo/brazoDch/brazoNinioDch.png')) {
+        if (imagenBrazoDch === require('assets/images/cuerpo/brazoDch/brazoNinioDch.png')) {
             cambiarColorPopUp('#58B500');
             cambiarTexto("Si te pueden tocar");
             setValorZIndex(1);
         }
     };
 
-    const [imagenPantalon, setImagenPantalon] = useState(require('./assets/images/cuerpo/pantalon/pantalonNinio.png'));
+    const [imagenPantalon, setImagenPantalon] = useState(require('assets/images/cuerpo/pantalon/pantalonNinio.png'));
     const cambiarPantalon = () => {
         setImagenPantalon((ImagenPantalonAnterior) =>
-            ImagenPantalonAnterior === require('./assets/images/cuerpo/pantalon/pantalonNinio.png') ? require('./assets/images/cuerpo/pantalon/pantalonNinioNO.png') : require('./assets/images/cuerpo/pantalon/pantalonNinio.png')
+            ImagenPantalonAnterior === require('assets/images/cuerpo/pantalon/pantalonNinio.png') ? require('assets/images/cuerpo/pantalon/pantalonNinioNO.png') : require('assets/images/cuerpo/pantalon/pantalonNinio.png')
         );
-        if (imagenPantalon === require('./assets/images/cuerpo/pantalon/pantalonNinio.png')) {
+        if (imagenPantalon === require('assets/images/cuerpo/pantalon/pantalonNinio.png')) {
             cambiarColorPopUp('#A90000');
             cambiarTexto("No te pueden tocar");
             setValorZIndex(1);
         }
     };
 
-    const [imagenPiernaIzq, setImagenPiernaIzq] = useState(require('./assets/images/cuerpo/piernaIzq/piernaNinioIzq.png'));
+    const [imagenPiernaIzq, setImagenPiernaIzq] = useState(require('assets/images/cuerpo/piernaIzq/piernaNinioIzq.png'));
     const cambiarPiernaIzq = () => {
         setImagenPiernaIzq((ImagenPiernaIzqAnterior) =>
-            ImagenPiernaIzqAnterior === require('./assets/images/cuerpo/piernaIzq/piernaNinioIzq.png') ? require('./assets/images/cuerpo/piernaIzq/piernaNinioIzqSI.png') : require('./assets/images/cuerpo/piernaIzq/piernaNinioIzq.png')
+            ImagenPiernaIzqAnterior === require('assets/images/cuerpo/piernaIzq/piernaNinioIzq.png') ? require('assets/images/cuerpo/piernaIzq/piernaNinioIzqSI.png') : require('assets/images/cuerpo/piernaIzq/piernaNinioIzq.png')
         );
-        if (imagenPiernaIzq === require('./assets/images/cuerpo/piernaIzq/piernaNinioIzq.png')) {
+        if (imagenPiernaIzq === require('assets/images/cuerpo/piernaIzq/piernaNinioIzq.png')) {
             cambiarColorPopUp('#58B500');
             cambiarTexto("Si te pueden tocar");
             setValorZIndex(1);
         }
     };
 
-    const [imagenPiernaDch, setImagenPiernaDch] = useState(require('./assets/images/cuerpo/piernaDch/piernaNinioDch.png'));
+    const [imagenPiernaDch, setImagenPiernaDch] = useState(require('assets/images/cuerpo/piernaDch/piernaNinioDch.png'));
     const cambiarPiernaDch = () => {
         setImagenPiernaDch((ImagenPiernaDchAnterior) =>
-            ImagenPiernaDchAnterior === require('./assets/images/cuerpo/piernaDch/piernaNinioDch.png') ? require('./assets/images/cuerpo/piernaDch/piernaNinioDchSI.png') : require('./assets/images/cuerpo/piernaDch/piernaNinioDch.png')
+            ImagenPiernaDchAnterior === require('assets/images/cuerpo/piernaDch/piernaNinioDch.png') ? require('assets/images/cuerpo/piernaDch/piernaNinioDchSI.png') : require('assets/images/cuerpo/piernaDch/piernaNinioDch.png')
         );
-        if (imagenPiernaDch === require('./assets/images/cuerpo/piernaDch/piernaNinioDch.png')) {
+        if (imagenPiernaDch === require('assets/images/cuerpo/piernaDch/piernaNinioDch.png')) {
             cambiarColorPopUp('#58B500');
             cambiarTexto("Si te pueden tocar");
             setValorZIndex(1);
@@ -105,15 +106,15 @@ export function Juego1Screen({ route }) {
     };
 
     return (
-        <ImageBackground source={require('./assets/images/Fondo_fabulino.png')} style={styles.background}>
-            <View style={styles.container}>
+        <ImageBackground source={require('assets/images/Fondo_fabulino.png')} style={stylesFull.background}>
+            <View style={stylesFull.container}>
                 <View style={[styles.respuesta, { backgroundColor: colorPopUp, zIndex: valorZIndex }]}>
                     <TouchableOpacity style={styles.botonAtras} onPress={cambiarValorZIndex}>
-                        <Image style={[styles.iconoAtras, { zIndex: valorZIndex }]} source={require('./assets/images/iconos/atras.png')} />
+                        <Image style={[styles.iconoAtras, { zIndex: valorZIndex }]} source={require('assets/images/iconos/atras.png')} />
                     </TouchableOpacity>
                     <Text style={styles.texto}>{texto}</Text>
                 </View>
-                <View style={styles.row}>
+                <View style={stylesFull.row}>
                     <TouchableOpacity onPress={cambiarCabeza}>
                         <Image
                             source={imagenCabeza}
@@ -121,7 +122,7 @@ export function Juego1Screen({ route }) {
                             resizeMode="contain"
                         /></TouchableOpacity>
                 </View>
-                <View style={styles.row}>
+                <View style={stylesFull.row}>
                     <TouchableOpacity onPress={cambiarBrazoIzq}>
                         <Image
                             source={imagenBrazoIzq}
@@ -141,7 +142,7 @@ export function Juego1Screen({ route }) {
                             resizeMode="contain"
                         /></TouchableOpacity>
                 </View>
-                <View style={styles.row}>
+                <View style={stylesFull.row}>
                     <TouchableOpacity onPress={cambiarPantalon}>
                         <Image
                             source={imagenPantalon}
@@ -149,7 +150,7 @@ export function Juego1Screen({ route }) {
                             resizeMode="contain"
                         /></TouchableOpacity>
                 </View>
-                <View style={styles.row}>
+                <View style={stylesFull.row}>
                     <TouchableOpacity onPress={cambiarPiernaIzq}>
                         <Image
                             source={imagenPiernaIzq}
@@ -169,17 +170,6 @@ export function Juego1Screen({ route }) {
 }
 
 const styles = StyleSheet.create({
-    container: {
-        marginTop: 140,
-        flex: 1,
-        justifyContent: 'flex-start',
-        alignItems: 'center',
-    },
-    row: {
-        flexDirection: 'row',
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
     texto: {
         color: '#DDF7C4',
         fontSize: 36,
@@ -195,12 +185,6 @@ const styles = StyleSheet.create({
         borderWidth: 3,
         borderRadius: 20,
         borderColor: 'black',
-    },
-    background: {
-        justifyContent: 'center',
-        alignItems: 'center',
-        flex: 1,
-        resizeMode: 'cover',
     },
     botonAtras: {
         position: 'absolute',
