@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, ImageBackground, Image, TouchableOpacity } from 'react-native';
+import { stylesFull } from 'assets/styles/stylesA';
 
 export function Juego1Screen({ route }) {
 
@@ -105,15 +106,15 @@ export function Juego1Screen({ route }) {
     };
 
     return (
-        <ImageBackground source={require('assets/images/Fondo_fabulino.png')} style={styles.background}>
-            <View style={styles.container}>
+        <ImageBackground source={require('assets/images/Fondo_fabulino.png')} style={stylesFull.background}>
+            <View style={stylesFull.container}>
                 <View style={[styles.respuesta, { backgroundColor: colorPopUp, zIndex: valorZIndex }]}>
                     <TouchableOpacity style={styles.botonAtras} onPress={cambiarValorZIndex}>
                         <Image style={[styles.iconoAtras, { zIndex: valorZIndex }]} source={require('assets/images/iconos/atras.png')} />
                     </TouchableOpacity>
                     <Text style={styles.texto}>{texto}</Text>
                 </View>
-                <View style={styles.row}>
+                <View style={stylesFull.row}>
                     <TouchableOpacity onPress={cambiarCabeza}>
                         <Image
                             source={imagenCabeza}
@@ -121,7 +122,7 @@ export function Juego1Screen({ route }) {
                             resizeMode="contain"
                         /></TouchableOpacity>
                 </View>
-                <View style={styles.row}>
+                <View style={stylesFull.row}>
                     <TouchableOpacity onPress={cambiarBrazoIzq}>
                         <Image
                             source={imagenBrazoIzq}
@@ -141,7 +142,7 @@ export function Juego1Screen({ route }) {
                             resizeMode="contain"
                         /></TouchableOpacity>
                 </View>
-                <View style={styles.row}>
+                <View style={stylesFull.row}>
                     <TouchableOpacity onPress={cambiarPantalon}>
                         <Image
                             source={imagenPantalon}
@@ -149,7 +150,7 @@ export function Juego1Screen({ route }) {
                             resizeMode="contain"
                         /></TouchableOpacity>
                 </View>
-                <View style={styles.row}>
+                <View style={stylesFull.row}>
                     <TouchableOpacity onPress={cambiarPiernaIzq}>
                         <Image
                             source={imagenPiernaIzq}
@@ -169,17 +170,6 @@ export function Juego1Screen({ route }) {
 }
 
 const styles = StyleSheet.create({
-    container: {
-        marginTop: 140,
-        flex: 1,
-        justifyContent: 'flex-start',
-        alignItems: 'center',
-    },
-    row: {
-        flexDirection: 'row',
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
     texto: {
         color: '#DDF7C4',
         fontSize: 36,
@@ -195,12 +185,6 @@ const styles = StyleSheet.create({
         borderWidth: 3,
         borderRadius: 20,
         borderColor: 'black',
-    },
-    background: {
-        justifyContent: 'center',
-        alignItems: 'center',
-        flex: 1,
-        resizeMode: 'cover',
     },
     botonAtras: {
         position: 'absolute',

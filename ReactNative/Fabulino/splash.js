@@ -5,6 +5,7 @@ import LottieView from 'lottie-react-native';
 import useSpinner from './SpinOff/SpinOff';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { useFonts } from 'expo-font';
+import { stylesFull } from 'assets/styles/stylesA';
 
 export function SplashScreen({ navigation }) {
     const [fontsLoaded] = useFonts({
@@ -31,8 +32,8 @@ export function SplashScreen({ navigation }) {
     const isAnotherAnimationVisible = useSpinner(newAnimationRef, 2000, () => { setDisplayImagen('bloc') });
 
     return (
-        <ImageBackground source={require('./assets/images/Fondo_fabulino.png')} style={styles.background}>
-            <View style={styles.container}>
+        <ImageBackground source={require('./assets/images/Fondo_fabulino.png')} style={stylesFull.background}>
+            <View style={stylesFull.container}>
                 {isAnimationVisible && (
                     <LottieView
                         ref={animationRef}
@@ -67,7 +68,7 @@ export function SplashScreen({ navigation }) {
                     resizeMode="contain"
                 />
                 <TouchableOpacity
-                    style={styles.styleBoton}
+                    style={stylesFull.styleBoton}
                     onPress={() => { 
                         navigation.navigate('menu');
                     }} // Función vacía para el evento onPress
@@ -81,18 +82,6 @@ export function SplashScreen({ navigation }) {
 }
 
 const styles = StyleSheet.create({
-    background: {
-        justifyContent: 'center',
-        alignItems: 'center',
-        flex: 1,
-        resizeMode: 'cover', // La propiedad resizeMode determina cómo se ajusta la imagen dentro del componente ImageBackground.
-    },
-    container: {
-        marginTop: 140,
-        flex: 1,
-        justifyContent: 'flex-start',
-        alignItems: 'center',
-    },
     styleTextImput: {
         borderColor: 'darkgrey',
         borderWidth: 3,
@@ -108,19 +97,6 @@ const styles = StyleSheet.create({
         color: 'floralwhite',
         fontSize: 24,
         fontWeight: 'bold',
-    },
-    styleBoton: {
-        justifyContent: 'center',
-        alignItems: 'center',
-        height: 56,
-        width: 144,
-        borderColor: 'darkgrey',
-        color: '#222828',
-        backgroundColor: 'floralwhite',
-        marginTop: 36,
-        borderWidth: 3,
-        borderRadius: 20,
-        margin: 16,
     },
     animation: {
         width: 125,
