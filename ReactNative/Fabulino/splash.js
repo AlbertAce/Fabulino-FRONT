@@ -118,8 +118,8 @@ export function SplashScreen({ navigation }) {
                                 },
                             ]}
                         >
-                            <TouchableOpacity style={styles.dropdownItem}>
-                                <Ionicons name={isMuted ? "volume-mute" : "volume-high"} size={24} color="white" onPress={cambiarMute} />
+                            <TouchableOpacity style={styles.dropdownItem} onPress={cambiarMute}>
+                                <Ionicons name={isMuted ? "volume-mute" : "volume-high"} size={24} color="white" />
                             </TouchableOpacity>
                             <TouchableOpacity
                                 style={styles.dropdownItem}
