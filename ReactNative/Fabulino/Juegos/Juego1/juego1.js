@@ -1,9 +1,13 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, ImageBackground, Image, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, ImageBackground, Image, TouchableOpacity, PixelRatio } from 'react-native';
 import { stylesFull } from 'assets/styles/stylesA';
 
 export function Juego1Screen({ route }) {
+    
+    const DPaPX = (pixeles) => {
+        return pixeles * PixelRatio.get();
+    }
 
     const [colorPopUp, setColorPopUp] = useState("");
     function cambiarColorPopUp(color) {
@@ -115,7 +119,7 @@ export function Juego1Screen({ route }) {
                     <Text style={styles.texto}>{texto}</Text>
                 </View>
                 <View style={stylesFull.row}>
-                    <TouchableOpacity onPress={cambiarCabeza}>
+                    <TouchableOpacity style={{transform: [{ translateY: DPaPX(-29.4) }]}} onPress={cambiarCabeza}>
                         <Image
                             source={imagenCabeza}
                             style={[styles.cabeza]}
@@ -123,19 +127,19 @@ export function Juego1Screen({ route }) {
                         /></TouchableOpacity>
                 </View>
                 <View style={stylesFull.row}>
-                    <TouchableOpacity onPress={cambiarBrazoIzq}>
+                    <TouchableOpacity style={{transform: [{ translateY: DPaPX(-32) }, { translateX: DPaPX(37) }]}} onPress={cambiarBrazoIzq}>
                         <Image
                             source={imagenBrazoIzq}
                             style={[styles.brazoIzq]}
                             resizeMode="contain"
                         /></TouchableOpacity>
-                    <TouchableOpacity onPress={cambiarTronco}>
+                    <TouchableOpacity style={{transform: [{ translateY: DPaPX(-39) }, { translateX: DPaPX(10) }]}} onPress={cambiarTronco}>
                         <Image
                             source={imagenTronco}
                             style={[styles.cuerpo]}
                             resizeMode="contain"
                         /></TouchableOpacity>
-                    <TouchableOpacity onPress={cambiarBrazoDch}>
+                    <TouchableOpacity style={{transform: [{ translateY: DPaPX(-31.2) }, { translateX: DPaPX(-15.5) }]}} onPress={cambiarBrazoDch}>
                         <Image
                             source={imagenBrazoDch}
                             style={[styles.brazoDch]}
@@ -143,7 +147,7 @@ export function Juego1Screen({ route }) {
                         /></TouchableOpacity>
                 </View>
                 <View style={stylesFull.row}>
-                    <TouchableOpacity onPress={cambiarPantalon}>
+                    <TouchableOpacity style={{transform: [{ translateY: DPaPX(-58.5) }]}} onPress={cambiarPantalon}>
                         <Image
                             source={imagenPantalon}
                             style={[styles.pantalon]}
@@ -151,13 +155,13 @@ export function Juego1Screen({ route }) {
                         /></TouchableOpacity>
                 </View>
                 <View style={stylesFull.row}>
-                    <TouchableOpacity onPress={cambiarPiernaIzq}>
+                    <TouchableOpacity style={{transform: [{ translateY: DPaPX(-70.9) }, { translateX: DPaPX(8.8) }]}} onPress={cambiarPiernaIzq}>
                         <Image
                             source={imagenPiernaIzq}
                             style={[styles.piernaIzq]}
                             resizeMode="contain"
                         /></TouchableOpacity>
-                    <TouchableOpacity onPress={cambiarPiernaDch}>
+                    <TouchableOpacity style={{transform: [{ translateY: DPaPX(-72.2) }, { translateX: DPaPX(-8.8) }]}} onPress={cambiarPiernaDch}>
                         <Image
                             source={imagenPiernaDch}
                             style={[styles.piernaDch]}
@@ -206,49 +210,42 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         width: 280,
-        height: 260,
-        transform: [{ translateY: -100 }],
+        height: 260
     },
     brazoIzq: {
         justifyContent: 'center',
         alignItems: 'center',
         width: 180,
         height: 160,
-        transform: [{ translateY: -105 }, { translateX: 100 }],
     },
     cuerpo: {
         justifyContent: 'center',
         alignItems: 'center',
         width: 180,
         height: 160,
-        transform: [{ translateY: -125 }, { translateX: 35 }],
     },
     brazoDch: {
         justifyContent: 'center',
         alignItems: 'center',
         width: 180,
         height: 160,
-        transform: [{ translateY: -105 }, { translateX: -29 }],
     },
     pantalon: {
         justifyContent: 'center',
         alignItems: 'center',
         width: 205,
-        height: 185,
-        transform: [{ translateY: -174 }],
+        height: 185
     },
     piernaIzq: {
         justifyContent: 'center',
         alignItems: 'center',
         width: 150,
         height: 130,
-        transform: [{ translateY: -205 }, { translateX: 22 }],
     },
     piernaDch: {
         justifyContent: 'center',
         alignItems: 'center',
         width: 150,
         height: 130,
-        transform: [{ translateY: -208 }, { translateX: -21 }],
     },
 });
