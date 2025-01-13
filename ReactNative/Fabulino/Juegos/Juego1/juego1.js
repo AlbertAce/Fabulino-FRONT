@@ -1,7 +1,9 @@
 import * as React from 'react';
-import { useState, useEffect } from 'react';
+import { useState, useRef } from 'react';
 import { View, Text, StyleSheet, ImageBackground, Image, TouchableOpacity, PixelRatio } from 'react-native';
 import { stylesFull } from 'assets/styles/stylesA';
+import { contarToque } from './conteoTocamientos';
+
 
 export function Juego1Screen({ route }) {
     
@@ -24,6 +26,18 @@ export function Juego1Screen({ route }) {
         setValorZIndex(-1);
         cambiarTexto("");
     }
+ 
+    const cambioImagenOriginal = ()=>{
+        setTimeout(() => {
+            setImagenCabeza (require('assets/images/cuerpo/cabeza/cabezaNinio.png'));
+            setImagenBrazoIzq(require('assets/images/cuerpo/brazoIzq/brazoNinioIzq.png') );
+            setImagenBrazoDch(require('assets/images/cuerpo/brazoDch/brazoNinioDch.png'));
+            setImagenPantalon(require('assets/images/cuerpo/pantalon/pantalonNinio.png'));
+            setImagenPiernaDch(require('assets/images/cuerpo/piernaDch/piernaNinioDch.png'));
+            setImagenPiernaIzq(require('assets/images/cuerpo/piernaIzq/piernaNinioIzq.png'));
+            setImagenTronco(require('assets/images/cuerpo/tronco/troncoNinio.png'));
+        }, 1500);
+    }
 
     const [imagenCabeza, setImagenCabeza] = useState(require('assets/images/cuerpo/cabeza/cabezaNinio.png'));
     const cambiarCabeza = () => {
@@ -31,8 +45,8 @@ export function Juego1Screen({ route }) {
             ImagenCabezaAnterior === require('assets/images/cuerpo/cabeza/cabezaNinio.png') ? require('assets/images/cuerpo/cabeza/cabezaNinioSI.png') : require('assets/images/cuerpo/cabeza/cabezaNinio.png')
         );
         if (imagenCabeza === require('assets/images/cuerpo/cabeza/cabezaNinio.png')) {
-            cambiarColorPopUp('#58B500');
-            cambiarTexto("Si te pueden tocar");
+            cambiarColorPopUp('rgba(88, 181, 0, 0.8)');
+            cambiarTexto("Esta zona está permitida siempre y cuando tu quieras\n\nRECUERDA!! tu eres el dueño de tu cuerpo!!");
             setValorZIndex(1);
         }
     };
@@ -43,8 +57,8 @@ export function Juego1Screen({ route }) {
             ImagenBrazoIzqAnterior === require('assets/images/cuerpo/brazoIzq/brazoNinioIzq.png') ? require('assets/images/cuerpo/brazoIzq/brazoNinioIzqSI.png') : require('assets/images/cuerpo/brazoIzq/brazoNinioIzq.png')
         );
         if (imagenBrazoIzq === require('assets/images/cuerpo/brazoIzq/brazoNinioIzq.png')) {
-            cambiarColorPopUp('#58B500');
-            cambiarTexto("Si te pueden tocar");
+            cambiarColorPopUp('rgba(88, 181, 0, 0.8)');
+            cambiarTexto("Esta zona está permitida siempre y cuando tu quieras,\n\nRECUERDA!! Para jugar no es necesario tocar!!");
             setValorZIndex(1);
         }
     };
@@ -55,8 +69,8 @@ export function Juego1Screen({ route }) {
             ImagenTroncoAnterior === require('assets/images/cuerpo/tronco/troncoNinio.png') ? require('assets/images/cuerpo/tronco/troncoNinioNO.png') : require('assets/images/cuerpo/tronco/troncoNinio.png')
         );
         if (imagenTronco === require('assets/images/cuerpo/tronco/troncoNinio.png')) {
-            cambiarColorPopUp('#A90000');
-            cambiarTexto("No te pueden tocar");
+            cambiarColorPopUp('rgba(169, 0, 0, 0.8)');
+            cambiarTexto("RECUERDA!!!! Solo tu puedes tocar esta parte!!\n\nTU padre o madre solo para ayudarte en tus necesidades o ayudarte a vestir\n\nEl doctor delante de tu madre o padre!");
             setValorZIndex(1);
         }
     };
@@ -67,8 +81,8 @@ export function Juego1Screen({ route }) {
             ImagenBrazoDchAnterior === require('assets/images/cuerpo/brazoDch/brazoNinioDch.png') ? require('assets/images/cuerpo/brazoDch/brazoNinioDchSI.png') : require('assets/images/cuerpo/brazoDch/brazoNinioDch.png')
         );
         if (imagenBrazoDch === require('assets/images/cuerpo/brazoDch/brazoNinioDch.png')) {
-            cambiarColorPopUp('#58B500');
-            cambiarTexto("Si te pueden tocar");
+            cambiarColorPopUp('rgba(88, 181, 0, 0.8)');
+            cambiarTexto("Esta zona está permitida siempre y cuando tu quieras,\n\nRECUERDA!! Los secretos no son necesarios!!");
             setValorZIndex(1);
         }
     };
@@ -79,8 +93,8 @@ export function Juego1Screen({ route }) {
             ImagenPantalonAnterior === require('assets/images/cuerpo/pantalon/pantalonNinio.png') ? require('assets/images/cuerpo/pantalon/pantalonNinioNO.png') : require('assets/images/cuerpo/pantalon/pantalonNinio.png')
         );
         if (imagenPantalon === require('assets/images/cuerpo/pantalon/pantalonNinio.png')) {
-            cambiarColorPopUp('#A90000');
-            cambiarTexto("No te pueden tocar");
+            cambiarColorPopUp('rgba(169, 0, 0, 0.8)');
+            cambiarTexto("RECUERDA!!!! Solo tu puedes tocar esta parte!!\n\nTU padre o madre solo para ayudarte en tus necesidades o ayudarte a vestir\n\nEl doctor delante de tu madre o padre!");
             setValorZIndex(1);
         }
     };
@@ -91,8 +105,8 @@ export function Juego1Screen({ route }) {
             ImagenPiernaIzqAnterior === require('assets/images/cuerpo/piernaIzq/piernaNinioIzq.png') ? require('assets/images/cuerpo/piernaIzq/piernaNinioIzqSI.png') : require('assets/images/cuerpo/piernaIzq/piernaNinioIzq.png')
         );
         if (imagenPiernaIzq === require('assets/images/cuerpo/piernaIzq/piernaNinioIzq.png')) {
-            cambiarColorPopUp('#58B500');
-            cambiarTexto("Si te pueden tocar");
+            cambiarColorPopUp('rgba(88, 181, 0, 0.8)');
+            cambiarTexto("Esta zona está permitida siempre y cuando tu quieras,\n\nRECUERDA!! Si algo no es divertido o te pone triste, NO ES UN JUEGO");
             setValorZIndex(1);
         }
     };
@@ -103,17 +117,25 @@ export function Juego1Screen({ route }) {
             ImagenPiernaDchAnterior === require('assets/images/cuerpo/piernaDch/piernaNinioDch.png') ? require('assets/images/cuerpo/piernaDch/piernaNinioDchSI.png') : require('assets/images/cuerpo/piernaDch/piernaNinioDch.png')
         );
         if (imagenPiernaDch === require('assets/images/cuerpo/piernaDch/piernaNinioDch.png')) {
-            cambiarColorPopUp('#58B500');
-            cambiarTexto("Si te pueden tocar");
+            cambiarColorPopUp('rgba(88, 181, 0, 0.8)');
+            cambiarTexto("Esta zona está permitida siempre y cuando tu quieras,\n\nRECUERDA!! Si algo no es divertido o te pone triste, NO ES UN JUEGO");
             setValorZIndex(1);
         }
     };
 
+     const backPopup = () =>{
+        cambiarValorZIndex();
+        cambioImagenOriginal();
+        contarToque();
+
+     }
+
+
     return (
         <ImageBackground source={require('assets/images/Fondo_fabulino.png')} style={stylesFull.background}>
             <View style={stylesFull.container}>
-                <View style={[styles.respuesta, { backgroundColor: colorPopUp, zIndex: valorZIndex }]}>
-                    <TouchableOpacity style={styles.botonAtras} onPress={cambiarValorZIndex}>
+                <View style={[styles.respuesta, { backgroundColor: colorPopUp, zIndex: valorZIndex}]}>
+                    <TouchableOpacity style={styles.botonAtras} onPress={backPopup}>
                         <Image style={[styles.iconoAtras, { zIndex: valorZIndex }]} source={require('assets/images/iconos/atras.png')} />
                     </TouchableOpacity>
                     <Text style={styles.texto}>{texto}</Text>
@@ -175,8 +197,11 @@ export function Juego1Screen({ route }) {
 
 const styles = StyleSheet.create({
     texto: {
+        justifyContent:'center',
+        alignItems:'flex-end',
+        margin:10,
         color: '#DDF7C4',
-        fontSize: 36,
+        fontSize: 24,
         fontWeight: 'bold',
     },
     respuesta: {
