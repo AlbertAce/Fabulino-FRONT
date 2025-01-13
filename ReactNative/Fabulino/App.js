@@ -1,10 +1,8 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
 import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { SplashScreen } from './splash'
+import { InicioScreen } from './inicio'
 import { MenuScreen } from './menu'
 import { Juego1Screen } from 'Juegos/Juego1/juego1'
 import { Juego2Screen } from 'Juegos/Juego2/juego2'
@@ -13,8 +11,8 @@ import { Juego3Screen } from 'Juegos/Juego3/juego3'
 const Stack = createNativeStackNavigator();
 function RootStack() {
   return (
-    <Stack.Navigator initialRouteName='splash' screenOptions={{ headerStyle: { backgroundColor: 'floralwhite' } }}>
-      <Stack.Screen name='splash' component={SplashScreen} options={{ title: 'Inicio' }}></Stack.Screen>
+    <Stack.Navigator initialRouteName='inicio' screenOptions={{ headerStyle: { backgroundColor: 'floralwhite' } }}>
+      <Stack.Screen name='inicio' component={InicioScreen} options={{ title: 'Inicio' }}></Stack.Screen>
       <Stack.Screen name='menu' component={MenuScreen} options={{ title: 'Menu' }}></Stack.Screen>
       <Stack.Screen name='juego1' component={Juego1Screen} options={{ title: 'Buen toque, mal toque' }}></Stack.Screen>
       <Stack.Screen name='juego2' component={Juego2Screen} options={{ title: 'Mis emociones' }}></Stack.Screen>

@@ -18,21 +18,4 @@ export const stylesFull = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
     },
-    styleBoton: {
-        justifyContent: 'center',
-        alignItems: 'center',
-        height: 56,
-        width: 164,
-        borderColor: 'black',
-        color: '#222828',
-        backgroundColor: '#52A900',
-        marginTop: 60,
-        borderWidth: 3,
-        borderRadius: 20,
-    },
-    buttonText: {
-        color: '#DDF7C4',
-        fontSize: 24,
-        fontFamily: 'MTFBirthdayBash',
-    },
 });
