@@ -19,7 +19,6 @@ export function InicioScreen({ navigation }) {
         setIsMuted(prevState => !prevState);
     };
 
-
     const cambiarMenu = () => {
         Animated.timing(animatedValue, {
             toValue: isExpanded ? 0 : 1,
