@@ -42,7 +42,7 @@ export function contarToque(parte) {
       numToques.boca++;
   }
 
-  partesTmp.ordenPartes.push();
+  partesTmp.ordenPartes.push(parte);
 }
 
 export async function mandarToques(usuario) {
