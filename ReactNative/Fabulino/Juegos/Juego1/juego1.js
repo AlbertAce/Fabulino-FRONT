@@ -2,11 +2,14 @@ import * as React from 'react';
 import { useState, useRef } from 'react';
 import { View, Text, StyleSheet, ImageBackground, Image, TouchableOpacity, PixelRatio } from 'react-native';
 import { stylesFull } from 'assets/styles/stylesA';
-import { contarToque } from './conteoTocamientos';
+import { contarToque, resetToques, mandarToques } from 'Juegos/Juego1/conteoToques';
+import { stylesBtns } from '../../assets/styles/stylesButtons';
+
+
 
 
 export function Juego1Screen({ route }) {
-    
+
     const DPaPX = (pixeles) => {
         return pixeles * PixelRatio.get();
     }
@@ -26,11 +29,11 @@ export function Juego1Screen({ route }) {
         setValorZIndex(-1);
         cambiarTexto("");
     }
- 
-    const cambioImagenOriginal = ()=>{
+
+    const cambioImagenOriginal = () => {
         setTimeout(() => {
-            setImagenCabeza (require('assets/images/cuerpo/cabeza/cabezaNinio.png'));
-            setImagenBrazoIzq(require('assets/images/cuerpo/brazoIzq/brazoNinioIzq.png') );
+            setImagenCabeza(require('assets/images/cuerpo/cabeza/cabezaNinio.png'));
+            setImagenBrazoIzq(require('assets/images/cuerpo/brazoIzq/brazoNinioIzq.png'));
             setImagenBrazoDch(require('assets/images/cuerpo/brazoDch/brazoNinioDch.png'));
             setImagenPantalon(require('assets/images/cuerpo/pantalon/pantalonNinio.png'));
             setImagenPiernaDch(require('assets/images/cuerpo/piernaDch/piernaNinioDch.png'));
@@ -41,6 +44,7 @@ export function Juego1Screen({ route }) {
 
     const [imagenCabeza, setImagenCabeza] = useState(require('assets/images/cuerpo/cabeza/cabezaNinio.png'));
     const cambiarCabeza = () => {
+        contarToque('cabeza');
         setImagenCabeza((ImagenCabezaAnterior) =>
             ImagenCabezaAnterior === require('assets/images/cuerpo/cabeza/cabezaNinio.png') ? require('assets/images/cuerpo/cabeza/cabezaNinioSI.png') : require('assets/images/cuerpo/cabeza/cabezaNinio.png')
         );
@@ -53,6 +57,7 @@ export function Juego1Screen({ route }) {
 
     const [imagenBrazoIzq, setImagenBrazoIzq] = useState(require('assets/images/cuerpo/brazoIzq/brazoNinioIzq.png'));
     const cambiarBrazoIzq = () => {
+        contarToque('brazo');
         setImagenBrazoIzq((ImagenBrazoIzqAnterior) =>
             ImagenBrazoIzqAnterior === require('assets/images/cuerpo/brazoIzq/brazoNinioIzq.png') ? require('assets/images/cuerpo/brazoIzq/brazoNinioIzqSI.png') : require('assets/images/cuerpo/brazoIzq/brazoNinioIzq.png')
         );
@@ -65,6 +70,7 @@ export function Juego1Screen({ route }) {
 
     const [imagenTronco, setImagenTronco] = useState(require('assets/images/cuerpo/tronco/troncoNinio.png'));
     const cambiarTronco = () => {
+        contarToque('pecho');
         setImagenTronco((ImagenTroncoAnterior) =>
             ImagenTroncoAnterior === require('assets/images/cuerpo/tronco/troncoNinio.png') ? require('assets/images/cuerpo/tronco/troncoNinioNO.png') : require('assets/images/cuerpo/tronco/troncoNinio.png')
         );
@@ -77,6 +83,7 @@ export function Juego1Screen({ route }) {
 
     const [imagenBrazoDch, setImagenBrazoDch] = useState(require('assets/images/cuerpo/brazoDch/brazoNinioDch.png'));
     const cambiarBrazoDch = () => {
+        contarToque('brazo');
         setImagenBrazoDch((ImagenBrazoDchAnterior) =>
             ImagenBrazoDchAnterior === require('assets/images/cuerpo/brazoDch/brazoNinioDch.png') ? require('assets/images/cuerpo/brazoDch/brazoNinioDchSI.png') : require('assets/images/cuerpo/brazoDch/brazoNinioDch.png')
         );
@@ -89,6 +96,7 @@ export function Juego1Screen({ route }) {
 
     const [imagenPantalon, setImagenPantalon] = useState(require('assets/images/cuerpo/pantalon/pantalonNinio.png'));
     const cambiarPantalon = () => {
+        contarToque('cadera');
         setImagenPantalon((ImagenPantalonAnterior) =>
             ImagenPantalonAnterior === require('assets/images/cuerpo/pantalon/pantalonNinio.png') ? require('assets/images/cuerpo/pantalon/pantalonNinioNO.png') : require('assets/images/cuerpo/pantalon/pantalonNinio.png')
         );
@@ -101,6 +109,7 @@ export function Juego1Screen({ route }) {
 
     const [imagenPiernaIzq, setImagenPiernaIzq] = useState(require('assets/images/cuerpo/piernaIzq/piernaNinioIzq.png'));
     const cambiarPiernaIzq = () => {
+        contarToque('pierna');
         setImagenPiernaIzq((ImagenPiernaIzqAnterior) =>
             ImagenPiernaIzqAnterior === require('assets/images/cuerpo/piernaIzq/piernaNinioIzq.png') ? require('assets/images/cuerpo/piernaIzq/piernaNinioIzqSI.png') : require('assets/images/cuerpo/piernaIzq/piernaNinioIzq.png')
         );
@@ -113,6 +122,7 @@ export function Juego1Screen({ route }) {
 
     const [imagenPiernaDch, setImagenPiernaDch] = useState(require('assets/images/cuerpo/piernaDch/piernaNinioDch.png'));
     const cambiarPiernaDch = () => {
+        contarToque('pierna');
         setImagenPiernaDch((ImagenPiernaDchAnterior) =>
             ImagenPiernaDchAnterior === require('assets/images/cuerpo/piernaDch/piernaNinioDch.png') ? require('assets/images/cuerpo/piernaDch/piernaNinioDchSI.png') : require('assets/images/cuerpo/piernaDch/piernaNinioDch.png')
         );
@@ -123,25 +133,23 @@ export function Juego1Screen({ route }) {
         }
     };
 
-     const backPopup = () =>{
+    const backPopup = () => {
         cambiarValorZIndex();
         cambioImagenOriginal();
-        contarToque();
-
-     }
+    }
 
 
     return (
         <ImageBackground source={require('assets/images/Fondo_fabulino.png')} style={stylesFull.background}>
             <View style={stylesFull.container}>
-                <View style={[styles.respuesta, { backgroundColor: colorPopUp, zIndex: valorZIndex}]}>
+                <View style={[styles.respuesta, { backgroundColor: colorPopUp, zIndex: valorZIndex }]}>
                     <TouchableOpacity style={styles.botonAtras} onPress={backPopup}>
                         <Image style={[styles.iconoAtras, { zIndex: valorZIndex }]} source={require('assets/images/iconos/atras.png')} />
                     </TouchableOpacity>
                     <Text style={styles.texto}>{texto}</Text>
                 </View>
                 <View style={stylesFull.row}>
-                    <TouchableOpacity style={{transform: [{ translateY: DPaPX(-29.4) }]}} onPress={cambiarCabeza}>
+                    <TouchableOpacity style={{ transform: [{ translateY: DPaPX(-29.4) }] }} onPress={cambiarCabeza}>
                         <Image
                             source={imagenCabeza}
                             style={[styles.cabeza]}
@@ -149,19 +157,19 @@ export function Juego1Screen({ route }) {
                         /></TouchableOpacity>
                 </View>
                 <View style={stylesFull.row}>
-                    <TouchableOpacity style={{transform: [{ translateY: DPaPX(-32) }, { translateX: DPaPX(37) }]}} onPress={cambiarBrazoIzq}>
+                    <TouchableOpacity style={{ transform: [{ translateY: DPaPX(-32) }, { translateX: DPaPX(37) }] }} onPress={cambiarBrazoIzq}>
                         <Image
                             source={imagenBrazoIzq}
                             style={[styles.brazoIzq]}
                             resizeMode="contain"
                         /></TouchableOpacity>
-                    <TouchableOpacity style={{transform: [{ translateY: DPaPX(-39) }, { translateX: DPaPX(10) }]}} onPress={cambiarTronco}>
+                    <TouchableOpacity style={{ transform: [{ translateY: DPaPX(-39) }, { translateX: DPaPX(10) }] }} onPress={cambiarTronco}>
                         <Image
                             source={imagenTronco}
                             style={[styles.cuerpo]}
                             resizeMode="contain"
                         /></TouchableOpacity>
-                    <TouchableOpacity style={{transform: [{ translateY: DPaPX(-31.2) }, { translateX: DPaPX(-15.5) }]}} onPress={cambiarBrazoDch}>
+                    <TouchableOpacity style={{ transform: [{ translateY: DPaPX(-31.2) }, { translateX: DPaPX(-15.5) }] }} onPress={cambiarBrazoDch}>
                         <Image
                             source={imagenBrazoDch}
                             style={[styles.brazoDch]}
@@ -169,7 +177,7 @@ export function Juego1Screen({ route }) {
                         /></TouchableOpacity>
                 </View>
                 <View style={stylesFull.row}>
-                    <TouchableOpacity style={{transform: [{ translateY: DPaPX(-58.5) }]}} onPress={cambiarPantalon}>
+                    <TouchableOpacity style={{ transform: [{ translateY: DPaPX(-58.5) }] }} onPress={cambiarPantalon}>
                         <Image
                             source={imagenPantalon}
                             style={[styles.pantalon]}
@@ -177,18 +185,27 @@ export function Juego1Screen({ route }) {
                         /></TouchableOpacity>
                 </View>
                 <View style={stylesFull.row}>
-                    <TouchableOpacity style={{transform: [{ translateY: DPaPX(-70.9) }, { translateX: DPaPX(8.8) }]}} onPress={cambiarPiernaIzq}>
+                    <TouchableOpacity style={{ transform: [{ translateY: DPaPX(-70.9) }, { translateX: DPaPX(8.8) }] }} onPress={cambiarPiernaIzq}>
                         <Image
                             source={imagenPiernaIzq}
                             style={[styles.piernaIzq]}
                             resizeMode="contain"
                         /></TouchableOpacity>
-                    <TouchableOpacity style={{transform: [{ translateY: DPaPX(-72.2) }, { translateX: DPaPX(-8.8) }]}} onPress={cambiarPiernaDch}>
+                    <TouchableOpacity style={{ transform: [{ translateY: DPaPX(-72.2) }, { translateX: DPaPX(-8.8) }] }} onPress={cambiarPiernaDch}>
                         <Image
                             source={imagenPiernaDch}
                             style={[styles.piernaDch]}
                             resizeMode="contain"
                         /></TouchableOpacity>
+                </View>
+                <View>
+                    <Text style={[styles.texto,  { transform: [{ translateY: -172 }, { translateX: 60 }], color:'black',}]}> Terminar </Text>
+                    <TouchableOpacity style={[styles.botonAtras, { transform: [{ translateY: -180 }, { translateX: 190 }],
+ }]} onPress={() => { if(mandarToques()){
+    resetToques();
+ } }}>
+                        <Image style={[styles.iconoAtras]} source={require('assets/images/iconos/atras.png')} />
+                    </TouchableOpacity>
                 </View>
             </View>
         </ImageBackground>
@@ -197,9 +214,9 @@ export function Juego1Screen({ route }) {
 
 const styles = StyleSheet.create({
     texto: {
-        justifyContent:'center',
-        alignItems:'flex-end',
-        margin:10,
+        justifyContent: 'center',
+        alignItems: 'flex-end',
+        margin: 10,
         color: '#DDF7C4',
         fontSize: 24,
         fontWeight: 'bold',

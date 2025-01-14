@@ -1,15 +1,24 @@
-const [partes, setPartes] = useState(() => {
-  resetToques();
-});
+let partes = {
+  ordenPartes: [],
+  numeroToques: {
+    piernas: 0,
+    caderas: 0,
+    pecho: 0,
+    brazos: 0,
+    cabeza: 0,
+    boca: 0
+  }
+};
+
 
 export function resetToques() {
-  setPartes({
+  partes = ({
     ordenPartes: [
     ],
     numeroToques: {
       piernas: 0,
       caderas: 0,
-      pechos: 0,
+      pecho: 0,
       brazos: 0,
       cabeza: 0,
       boca: 0
@@ -19,8 +28,7 @@ export function resetToques() {
 
 export function contarToque(parte) {
   parte = parte.trim().toLowerCase();
-  let partesTmp = JSON.parse(JSON.stringify(partes));
-  let numToques = partesTmp.numeroToques;
+  let numToques = partes.numeroToques;
 
   switch (parte) {
     case 'pierna':
@@ -30,7 +38,7 @@ export function contarToque(parte) {
       numToques.caderas++;
       break;
     case 'torso':
-      numToques.pechos++;
+      numToques.pecho++;
       break;
     case 'brazo':
       numToques.brazos++;
@@ -42,7 +50,9 @@ export function contarToque(parte) {
       numToques.boca++;
   }
 
-  partesTmp.ordenPartes.push(parte);
+  partes.ordenPartes.push(parte);
+
+  console.log(partes);
 }
 
 export async function mandarToques(usuario) {
