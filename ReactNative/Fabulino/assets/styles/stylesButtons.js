@@ -38,4 +38,21 @@ export const stylesBtns = StyleSheet.create({
         borderRadius: 50,
         margin: 16,
     },
+    botonInferior: {
+        position: 'absolute',
+        bottom: 20,
+        left: 20,
+        right: 20,
+        backgroundColor: '#007AFF',
+        padding: 15,
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderRadius: 10,
+    },
+    textoBoton: {
+        color: '#fff',
+        fontSize: 18,
+        fontWeight: 'bold',
+    },
+
 });
