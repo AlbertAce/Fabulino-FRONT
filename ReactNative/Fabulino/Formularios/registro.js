@@ -13,6 +13,7 @@ export function RegistroScreen({ route, navigation }) {
     }); // Esto es para usar la fuente importada
     const [nombre, setNombre] = useState('');
     const [email, setEmail] = useState('');
+    const [isValid, setIsValid] = useState(true);
     const [clave, setClave] = useState('');
     const [verClave, setVerClave] = useState(false);
     const [relacion, setRelacion] = useState('');
@@ -36,9 +37,14 @@ export function RegistroScreen({ route, navigation }) {
         setRelacion(relacion);
         console.log(relacion, nombre);
     };
+    const validateEmail = (text) => {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        setIsValid(emailRegex.test(text));
+        setEmail(text);
+      };
 
     function guardar() {
-        if (nombre.trim().length > 0 && email.trim().length > 0 && clave.trim().length > 0) {
+        if (nombre.trim().length > 0 && clave.trim().length > 0) {
             enviarFormBBDD(nombre.trim(), email.trim(), clave.trim(), relacion);
         }
         navigation.navigate('menu');
@@ -91,7 +97,7 @@ export function RegistroScreen({ route, navigation }) {
                                     style={styles.input}
                                     placeholder="Escribe tu email"
                                     placeholderTextColor="black"
-                                    onChangeText={setEmail}
+                                    onChangeText={validateEmail}
                                 />
                             </View>
 
@@ -138,7 +144,7 @@ export function RegistroScreen({ route, navigation }) {
                                 <Text style={stylesBtns.buttonText}>Guardar</Text>
                             </TouchableOpacity>
                         </View>
-                    </View>
+                    </View>  
                 </ImageBackground>
             </ScrollView>
         </SafeAreaView>
