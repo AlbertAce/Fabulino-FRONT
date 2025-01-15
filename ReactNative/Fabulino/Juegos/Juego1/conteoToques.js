@@ -37,7 +37,7 @@ export function contarToque(parte) {
     case 'cadera':
       numToques.caderas++;
       break;
-    case 'torso':
+    case 'pecho':
       numToques.pecho++;
       break;
     case 'brazo':
@@ -59,20 +59,25 @@ export async function mandarToques(usuario) {
   let partesTmp = JSON.parse(JSON.stringify(partes));
   let enviado = true;
 
-  let peticion = await fetch(
-    'localhost:8080/api/partesCuerpo',
-    {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        id_usuario: usuario,
-        orden: partesTmp.ordenPartes,
-        numToques: partesTmp.numeroToques
-      })
-    }
-  );
+  let peticion;
+  try {
+    peticion = await fetch(
+      'http://localhost:8080/api/partesCuerpo',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          id_usuario: usuario,
+          orden: partesTmp.ordenPartes,
+          numToques: partesTmp.numeroToques
+        })
+      }
+    );
+  } catch (err) {
+    peticion = {ok: false};
+  }
 
   if (!peticion.ok) {
     enviado = false;
