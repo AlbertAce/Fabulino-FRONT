@@ -3,7 +3,7 @@ let partes = {
   numeroToques: {
     piernas: 0,
     caderas: 0,
-    pecho: 0,
+    pechos: 0,
     brazos: 0,
     cabeza: 0,
     boca: 0
@@ -18,7 +18,7 @@ export function resetToques() {
     numeroToques: {
       piernas: 0,
       caderas: 0,
-      pecho: 0,
+      pechos: 0,
       brazos: 0,
       cabeza: 0,
       boca: 0
@@ -39,6 +39,7 @@ export function contarToque(parte) {
       break;
     case 'pecho':
       numToques.pecho++;
+      parte = parte+'s';
       break;
     case 'brazo':
       numToques.brazos++;
@@ -62,20 +63,21 @@ export async function mandarToques(usuario) {
   let peticion;
   try {
     peticion = await fetch(
-      'http://localhost:8080/api/partesCuerpo',
+      'http://172.16.0.235:8080/api/juegoToques/recibirDatos',
       {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          id_usuario: usuario,
-          orden: partesTmp.ordenPartes,
+          id: usuario,
+          ordenToques: partesTmp.ordenPartes,
           numToques: partesTmp.numeroToques
         })
       }
     );
   } catch (err) {
+    console.log(err);
     peticion = {ok: false};
   }
 

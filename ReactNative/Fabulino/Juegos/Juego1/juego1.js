@@ -201,7 +201,7 @@ export function Juego1Screen({ route }) {
                 <View>
                     <Text style={[styles.texto,  { transform: [{ translateY: -172 }, { translateX: 60 }], color:'black',}]}> Terminar </Text>
                     <TouchableOpacity style={[styles.botonAtras, { transform: [{ translateY: -180 }, { translateX: 190 }],
- }]} onPress={() => { if(mandarToques()){
+ }]} onPress={() => { if(mandarToques(1)){
     resetToques();
  } }}>
                         <Image style={[styles.iconoAtras]} source={require('assets/images/iconos/atras.png')} />
