@@ -1,4 +1,4 @@
-export async function enviarFormBBDD(nombre, email, clave, relacion) {
+export async function enviarForm(nombre, email, clave, relacion) {
     let enviado = true;
     let peticion;
     try{
