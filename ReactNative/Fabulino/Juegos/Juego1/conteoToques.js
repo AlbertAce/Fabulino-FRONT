@@ -10,7 +10,6 @@ let partes = {
   }
 };
 
-
 export function resetToques() {
   partes = ({
     ordenPartes: [
@@ -60,6 +59,24 @@ export async function mandarToques(usuario) {
   let partesTmp = JSON.parse(JSON.stringify(partes));
   let enviado = true;
 
+<<<<<<< HEAD
+  let peticion = await fetch(
+    
+    'localhost:8080/api/partesCuerpo',    
+    {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        id_usuario: usuario,
+        orden: partesTmp.ordenPartes,
+        numToques: partesTmp.numeroToques,
+      })
+    },
+  );
+ 
+=======
   let peticion;
   try {
     peticion = await fetch(
@@ -81,9 +98,13 @@ export async function mandarToques(usuario) {
     peticion = {ok: false};
   }
 
+>>>>>>> origin/dev
   if (!peticion.ok) {
     enviado = false;
     console.log('La petición no se ha procesado');
+  }else{
+    console.log('La petición se ha procesado');
+
   }
 
   return enviado;

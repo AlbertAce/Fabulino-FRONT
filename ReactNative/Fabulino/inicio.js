@@ -74,7 +74,7 @@ export function InicioScreen({ navigation }) {
                             </TouchableOpacity>
                             <TouchableOpacity
                                 style={styles.dropdownItem}
-                                onPress={() => navigation.navigate('NuevaPagina')}
+                                onPress={() => navigation.navigate('registro')}
                             >
                                 <Ionicons name="person" size={24} color="white" />
                             </TouchableOpacity>
