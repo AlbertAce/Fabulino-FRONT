@@ -39,11 +39,13 @@ export const stylesBtns = StyleSheet.create({
         margin: 16,
     },
     botonInferior: {
-        position: 'absolute',
+        margin:10,
+        marginTop:40,
+        width:150,
         bottom: 20,
-        left: 20,
-        right: 20,
-        backgroundColor: '#007AFF',
+        backgroundColor: '#52A900',
+        borderWidth: 3,
+        borderColor: 'darkgreen',
         padding: 15,
         alignItems: 'center',
         justifyContent: 'center',
@@ -53,6 +55,15 @@ export const stylesBtns = StyleSheet.create({
         color: '#fff',
         fontSize: 18,
         fontWeight: 'bold',
+    },
+    botonRedondo: {
+        width: 80,
+        height: 80,
+        backgroundColor: '#DDF7C4',
+        borderColor: 'black',
+        borderWidth: 2,
+        borderRadius: 100,
+        margin:5,
     },
 
 });
