@@ -203,7 +203,7 @@ export function Juego1Screen({ route }) {
                     <TouchableOpacity style={[styles.botonAtras, {
                         transform: [{ translateY: -180 }, { translateX: 190 }],
                     }]} onPress={() => {
-                        if (mandarToques('a')) {
+                        if (mandarToques(1)) {
                             resetToques();
                         }
                     }}>
