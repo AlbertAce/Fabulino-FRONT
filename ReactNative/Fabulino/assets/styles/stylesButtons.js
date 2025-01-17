@@ -60,10 +60,11 @@ export const stylesBtns = StyleSheet.create({
         width: 80,
         height: 80,
         backgroundColor: '#DDF7C4',
-        borderColor: 'black',
+        borderColor: '#52A900',
         borderWidth: 2,
         borderRadius: 100,
         margin:5,
+        marginBottom:0,
     },
 
 });
