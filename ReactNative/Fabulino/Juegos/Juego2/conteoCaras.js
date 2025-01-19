@@ -37,14 +37,14 @@ export function resetCaras(numeroFotografia) {
             tristeza: 0,
         },
         emojisMarcados: {
-            confusion: "-",
-            emocion: "-",
-            felicidad: "-",
-            miedo: "-",
-            rabia: "-",
-            sorpresa: "-",
-            timidez: "-",
-            tristeza: "-"
+            confusion: false,
+            emocion: false,
+            felicidad: false,
+            miedo: false,
+            rabia: false,
+            sorpresa: false,
+            timidez: false,
+            tristeza: false
         },
         imagen:numeroFotografia
     });
@@ -59,65 +59,65 @@ export function contarToque(emocionPulsada) {
         case 'confusion':
             numToques.confusion++;
             if (numToques.confusion % 2 == 0) {
-                emjMarcados.confusion = "-"
+                emjMarcados.confusion = false
             } else {
-                emjMarcados.confusion = "Confusion"
+                emjMarcados.confusion = true
             }
             break;
         case 'emocion':
             numToques.emocion++;
             if (numToques.emocion % 2 == 0) {
-                emjMarcados.emocion = "-"
+                emjMarcados.emocion = false
             } else {
-                emjMarcados.emocion = "Emocion"
+                emjMarcados.emocion = true
             }
             break;
         case 'felicidad':
             numToques.felicidad++;
             if (numToques.felicidad % 2 == 0) {
-                emjMarcados.felicidad = "-"
+                emjMarcados.felicidad = false
             } else {
-                emjMarcados.felicidad = "Felicidad"
+                emjMarcados.felicidad = true
             }
             break
         case 'miedo':
             numToques.miedo++;
             if (numToques.miedo % 2 == 0) {
-                emjMarcados.miedo = "-"
+                emjMarcados.miedo = false
             } else {
-                emjMarcados.miedo = "Miedo"
+                emjMarcados.miedo = true
             }
             break
         case 'rabia':
             numToques.rabia++;
             if (numToques.rabia % 2 == 0) {
-                emjMarcados.rabia = "-"
+                emjMarcados.rabia = false
             } else {
-                emjMarcados.rabia = "Rabia"
+                emjMarcados.rabia = true
             }
             break
         case 'sorpresa':
             numToques.sorpresa++;
             if (numToques.sorpresa % 2 == 0) {
-                emjMarcados.sorpresa = "-"
+                emjMarcados.sorpresa = false
             } else {
-                emjMarcados.sorpresa = "Sorpresa"
+                emjMarcados.sorpresa = true
             }
             break
         case 'timidez':
             numToques.timidez++;
             if (numToques.timidez % 2 == 0) {
-                emjMarcados.timidez = "-"
+                emjMarcados.timidez = false
             } else {
-                emjMarcados.timidez = "Timidez"
+                emjMarcados.timidez = true
             }
             break
         case 'tristeza':
             numToques.tristeza++;
             if (numToques.tristeza % 2 == 0) {
-                emjMarcados.tristeza = "-"
+                emjMarcados.tristeza = false
             } else {
-                emjMarcados.tristeza = "tristeza"
+                emjMarcados.tristeza = true
             }
             break
     }
