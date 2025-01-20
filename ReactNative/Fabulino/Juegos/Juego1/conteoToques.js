@@ -37,7 +37,7 @@ export function contarToque(parte) {
       numToques.caderas++;
       break;
     case 'pecho':
-      numToques.pecho++;
+      numToques.pechos++;
       parte = parte+'s';
       break;
     case 'brazo':
@@ -62,7 +62,7 @@ export async function mandarToques(usuario) {
   let peticion;
   try {
     peticion = await fetch(
-      'http://172.16.0.235:8080/api/juegoToques/recibirDatos',
+      'http://172.16.0.168:8080/api/juegoToques/recibirDatos',
       {
         method: 'POST',
         headers: {
