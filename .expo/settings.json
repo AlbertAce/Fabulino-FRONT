@@ -1,3 +1,6 @@
 {
-  "urlRandomness": "u9RP2-c"
+  "urlRandomness": "u9RP2-c",
+  "dev": true,
+  "minify": false,
+  "https": false
 }
