@@ -13,6 +13,9 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
+      "infoPlist": {
+        "NSCameraUsageDescription": "Esta aplicación necesita acceso a la cámara para tomar fotos."
+      },
       "supportsTablet": true,
       "bundleIdentifier": "com.fabulino.app"
     },
