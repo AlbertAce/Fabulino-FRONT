@@ -62,7 +62,7 @@ export async function mandarToques(usuario) {
   let peticion;
   try {
     peticion = await fetch(
-      'http://172.16.0.235:8080/api/juegoToques/recibirDatos',
+      'http://172.16.0.221:8080/api/juegoToques/recibirDatos',
       {
         method: 'POST',
         headers: {
