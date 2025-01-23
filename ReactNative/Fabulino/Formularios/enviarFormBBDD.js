@@ -3,7 +3,7 @@ export async function enviarFormBBDD(nombre, email, clave, relacion) {
     let peticion;
     try{
     peticion = await fetch(
-        'http://localhost:8080/api/registro',
+        'http://localhost:8081/api/registro',
         {
             method: 'POST',
             headers: {

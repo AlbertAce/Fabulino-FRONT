@@ -3,12 +3,54 @@ import { useState } from 'react';
 import { SafeAreaView, Text, ScrollView, View, Image, ImageBackground, StyleSheet, TouchableOpacity, Dimensions } from 'react-native';
 import { stylesFull } from 'assets/styles/stylesA';
 import { stylesBtns } from 'assets/styles/stylesButtons';
-import { contarToque, resetToques, mandarToques } from 'Juegos/Juego2/conteoCaras';
-
+import { contarToque, resetCaras, mandarEmojis } from 'Juegos/Juego2/conteoCaras';
+import { numeroImagen, } from './conteoCaras';
 
 export function Juego2Screen({ navigation }) {
-    
-    const {width, height } = Dimensions.get('window') 
+
+    const { width, height } = Dimensions.get('window')
+    const [imagen, setimagen] = useState(1);
+    const [deshabilitado, setDeshabilitado] = useState(false);
+    const [displayBtnAnterior, setDisplayBtnAnterior] = useState('block')
+    const [displayBtnSiguiente, setDisplayBtnSiguiente] = useState('block')
+
+    const siguienteImagen = () => {
+        let imagenNuevo = imagen;
+        if(imagenNuevo == imagenesAccion.length){// Object.keys(imagenesAccion).length es el tamaño del map de imagenesAccion
+            setDisplayBtnSiguiente('none');
+        }else{
+            setDisplayBtnAnterior('block');
+            setDisplayBtnSiguiente('block');
+            setDeshabilitado(true);
+            imagenNuevo++;
+            setimagen(imagenNuevo);
+            setTimeout(() => {
+                setDeshabilitado(false);
+                numeroImagen(imagenNuevo);
+            }, 2000);
+            resetCaras(),resetOpacidades();
+            mandarEmojis();
+        }
+
+    }
+    const anteriorImagen = () => {
+        let imagenNuevo = imagen;
+        if (imagenNuevo == 1) {
+            setDisplayBtnAnterior('none');
+        } else {
+            setDisplayBtnSiguiente('block');
+            setDisplayBtnAnterior('block');
+            setDeshabilitado(true);
+            imagenNuevo--;
+            setimagen(imagenNuevo);
+            setTimeout(() => {
+                setDeshabilitado(false);
+                numeroImagen(imagenNuevo);
+            }, 2000);
+            resetCaras(),resetOpacidades();
+            mandarEmojis();
+        }
+    }
 
     const [opacidades, setOpacidades] = useState({
         confusion: 0.5,
@@ -20,6 +62,19 @@ export function Juego2Screen({ navigation }) {
         timidez: 0.5,
         tristeza: 0.5,
     });
+
+     const resetOpacidades = ()=>{
+        setOpacidades({
+            confusion: 0.5,
+            emocion: 0.5,
+            felicidad: 0.5,
+            miedo: 0.5,
+            rabia: 0.5,
+            sorpresa: 0.5,
+            timidez: 0.5,
+            tristeza: 0.5,
+        })
+     }
 
     const cambiarOpacidad = (imagen) => {
         setOpacidades((prevOpacidades) => ({
@@ -43,9 +98,21 @@ export function Juego2Screen({ navigation }) {
         tristeza: require('assets/images/caras/triste.png'),
     };
 
-    const pulsarEmojis = (emocion)=>{
+    const imagenesAccion = {
+        1: require('assets/images/imagenesJuego2/1.png'),
+        2: require('assets/images/imagenesJuego2/2.png'),
+        3: require('assets/images/imagenesJuego2/3.png'),
+        4: require('assets/images/imagenesJuego2/4.png'),
+        5: require('assets/images/imagenesJuego2/5.png'),
+        6: require('assets/images/imagenesJuego2/6.png'),
+        7: require('assets/images/imagenesJuego2/7.png'),
+        8: require('assets/images/imagenesJuego2/8.png'),
+
+    }
+
+    const pulsarEmojis = (emocion) => {
         cambiarOpacidad(emocion),
-        contarToque(emocion)
+            contarToque(emocion)
     }
 
     const emoticonos = (emocion) => {
@@ -54,7 +121,8 @@ export function Juego2Screen({ navigation }) {
             <View style={[styles.imageContainer]} key={emocion}>
                 <TouchableOpacity
                     style={[stylesBtns.botonRedondo, styles.imageContainer]}
-                    onPress={() => pulsarEmojis(emocion)}>
+                    onPress={() => pulsarEmojis(emocion)}
+                    disabled={deshabilitado}>
                     <View style={[styles.imageContainer, styles.imagenes]}>
                         <Image
                             source={imagenes[emocion]}
@@ -75,9 +143,9 @@ export function Juego2Screen({ navigation }) {
         <SafeAreaView style={{ flex: 1 }}>
             <ImageBackground source={require('assets/images/Fondo_fabulino.png')} style={stylesFull.background}>
                 <ScrollView keyboardShouldPersistTaps="handled">
-                    <View style={stylesFull.container}>
+                    <View style={[stylesFull.container,{marginTop:0}]}>
                         <View>
-                            <Text>
+                            <Text style={styles.textoTiltulo}>
                                 ¿QUE EMOCIONES SIENTES AL VER LAS IMAGENES?
                             </Text>
                         </View>
@@ -94,19 +162,30 @@ export function Juego2Screen({ navigation }) {
                             {emoticonos('tristeza')}
                         </View>
                     </View>
-                    <View style = {[styles.imageContainer]}>
+                    <View style={[styles.imageContainer]}>
                         <Image
-                            source={require('assets/images/imagenesJuego2/Imagen_forcejeo.jpeg')}
-                            style={{height:height*.25, width:width*.9 ,borderRadius:20,}}
+                            source={imagenesAccion[imagen]}
+                            style={{ height: height * .25, width: width * .9, borderRadius: 20, }}
                             resizeMode="contain"
                         />
                     </View>
                     <View style={stylesFull.row}>
-                        <TouchableOpacity style={stylesBtns.botonInferior} onPress={() => {}}>
+                        <TouchableOpacity
+                            style={[stylesBtns.botonInferior, { display: displayBtnAnterior }]}
+                            onPress={() => anteriorImagen()}
+                            disabled={deshabilitado}>
                             <Text style={stylesBtns.textoBoton}>Atras</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity style={stylesBtns.botonInferior} onPress={() => {}}>
+                        <TouchableOpacity
+                            style={[stylesBtns.botonInferior, { display: displayBtnSiguiente }]}
+                            onPress={() => siguienteImagen()}
+                            disabled={deshabilitado}>
                             <Text style={stylesBtns.textoBoton}>Siguiente</Text>
+                        </TouchableOpacity>
+                    </View>
+                    <View>
+                        <TouchableOpacity>
+                            
                         </TouchableOpacity>
                     </View>
                 </ScrollView>
@@ -140,7 +219,13 @@ const styles = StyleSheet.create({
     textoEmoji: {
         textAlign: 'center',
         marginTop: 5,
-        color:'#52A900',
-        fontWeight:'bold',
+        color: '#52A900',
+        fontWeight: 'bold',
     },
+    textoTiltulo:{
+        textAlign: 'center',
+        color: '#52A900',
+        fontWeight: 'bold',
+        fontSize:32,
+    }
 });

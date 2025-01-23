@@ -11,16 +11,16 @@ let registrosEmojis = {
         tristeza: 0,
     },
     emojisMarcados: {
-        confusion: "-",
-        emocion: "-",
-        felicidad: "-",
-        miedo: "-",
-        rabia: "-",
-        sorpresa: "-",
-        timidez: "-",
-        tristeza: "-"
+        confusion: false,
+        emocion: false,
+        felicidad: false,
+        miedo: false,
+        rabia: false,
+        sorpresa: false,
+        timidez: false,
+        tristeza: false
     },
-    imagen: 0
+    imagen: 1
 };
 
 export function resetCaras(numeroFotografia) {
@@ -48,6 +48,10 @@ export function resetCaras(numeroFotografia) {
         },
         imagen:numeroFotografia
     });
+}
+
+export function numeroImagen(imagen){
+    registrosEmojis.imagen=imagen
 }
 
 export function contarToque(emocionPulsada) {
@@ -137,7 +141,7 @@ export async function mandarEmojis(usuario) {
   let peticion;
   try {
     peticion = await fetch(
-      'http://172.16.0.235:8080/api/juegoCaras/recibirDatos',
+      'http://192.168.117.219:8081/api/juegoCaras/recibirDatos',
       {
         method: 'POST',
         headers: {
@@ -148,7 +152,7 @@ export async function mandarEmojis(usuario) {
           ordenEmojis: emojisTmp.ordenEmojis,
           numToques: emojisTmp.numeroToques,
           emjMarcados: emojisTmp.emojisMarcados,
-          imagen: imagen
+          imagen: emojisTmp.imagen
         })
       }
     );
