@@ -5,6 +5,7 @@ import { Ionicons, FontAwesome5 } from '@expo/vector-icons';
 import { useFonts } from 'expo-font';
 import { stylesFull } from '../assets/styles/stylesA';
 import { stylesBtns } from '../assets/styles/stylesButtons';
+import { enviarForm } from '../Formularios/enviarFormBBDD';
 import Alerta from './alerta';
 
 export function RegistroScreen({ route, navigation }) {
@@ -35,7 +36,7 @@ export function RegistroScreen({ route, navigation }) {
 
     const alternarRelacion = (relacion) => {
         setRelacion(relacion);
-        console.log(relacion, nombre);
+        console.log(relacion, nombre, email, clave);
     };
     const validateEmail = (text) => {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -45,7 +46,7 @@ export function RegistroScreen({ route, navigation }) {
 
     function guardar() {
         if (nombre.trim().length > 0 && clave.trim().length > 0) {
-            enviarFormBBDD(nombre.trim(), email.trim(), clave.trim(), relacion);
+            enviarForm(nombre.trim(), email.trim(), clave.trim(), relacion);
         }
         navigation.navigate('menu');
     }
