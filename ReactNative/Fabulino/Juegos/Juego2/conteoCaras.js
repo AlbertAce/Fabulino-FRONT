@@ -137,11 +137,17 @@ export function contarToque(emocionPulsada) {
 export async function mandarEmojis(usuario) {
   let emojisTmp = JSON.parse(JSON.stringify(registrosEmojis));
   let enviado = true;
-
   let peticion;
+  console.log("Objeto enviado: " + JSON.stringify({
+    id: usuario,
+    ordenEmojis: emojisTmp.ordenEmojis,
+    numToques: emojisTmp.numeroToques,
+    emjMarcados: emojisTmp.emojisMarcados,
+    imagen: emojisTmp.imagen
+  }));
   try {
     peticion = await fetch(
-      'http://172.16.0.156:8081/api/juegoCaras/recibirDatos',
+      'http://172.16.0.124:8081/api/juegoCaras/recibirDatos',
       {
         method: 'POST',
         headers: {
