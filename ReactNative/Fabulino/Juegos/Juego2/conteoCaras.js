@@ -141,7 +141,7 @@ export async function mandarEmojis(usuario) {
   let peticion;
   try {
     peticion = await fetch(
-      'http://192.168.117.219:8081/api/juegoCaras/recibirDatos',
+      'http://172.16.0.156:8081/api/juegoCaras/recibirDatos',
       {
         method: 'POST',
         headers: {

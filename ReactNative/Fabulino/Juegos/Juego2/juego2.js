@@ -28,8 +28,9 @@ export function Juego2Screen({ navigation }) {
                 setDeshabilitado(false);
                 numeroImagen(imagenNuevo);
             }, 2000);
+            mandarEmojis(1);
             resetCaras(),resetOpacidades();
-            mandarEmojis();
+            
         }
 
     }
@@ -47,8 +48,9 @@ export function Juego2Screen({ navigation }) {
                 setDeshabilitado(false);
                 numeroImagen(imagenNuevo);
             }, 2000);
+            mandarEmojis(1);
             resetCaras(),resetOpacidades();
-            mandarEmojis();
+            
         }
     }
 
